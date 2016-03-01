@@ -7,4 +7,8 @@
     <route id="amap_homepage" path="/hello/{name}">
         <default key="_controller">AmapBundle:Default:index</default>
     </route>
-</routes>
+
+        <import resource="@AmapBundle/Resources/config/routing/typepanier.xml" prefix="/typepanier"/>
+
+
+   </routes>
