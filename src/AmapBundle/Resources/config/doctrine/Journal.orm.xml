@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="AmapBundle\Entity\Journal">
+    <id name="id" type="integer" column="id">
+      <generator strategy="AUTO"/>
+    </id>
+    <field name="typeES" type="boolean" column="typeES"/>
+    <field name="produit" type="string" column="produit" length="255"/>
+    <field name="quantite" type="float" column="quantite"/>
+    <field name="producteur" type="string" column="producteur" length="255"/>
+    <field name="date" type="date" column="date"/>
+  </entity>
+</doctrine-mapping>
