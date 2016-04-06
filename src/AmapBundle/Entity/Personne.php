@@ -7,7 +7,7 @@ use FOS\UserBundle\Entity\User as BaseUser;
 /**
  * User
  */
-class User extends BaseUser
+class Personne extends BaseUser
 {
     /**
      * @var integer
