@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="AmapBundle\Entity\Produit">
+    <id name="id" type="integer" column="id">
+      <generator strategy="AUTO"/>
+    </id>
+    <field name="libelle" type="string" column="libelle" length="255"/>
+    <field name="typeProduit" type="string" column="typeProduit" length="255"/>
+    <field name="uniteMesure" type="string" column="uniteMesure" length="255"/>
+    <many-to-one field="saison" target-entity="Saison">
+        <join-column name="idSaison" referenced-column-name="id"/>
+    </many-to-one>
+    <field name="prixUnitaire" type="float" column="prixUnitaire"/>
+  </entity>
+</doctrine-mapping>

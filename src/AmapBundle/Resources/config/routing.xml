@@ -9,6 +9,6 @@
     </route>
 
         <import resource="@AmapBundle/Resources/config/routing/typepanier.xml" prefix="/typepanier"/>
-
+        <import resource="@AmapBundle/Resources/config/routing/produit.xml" prefix="/produit"/>
 
    </routes>

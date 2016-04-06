@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<routes xmlns="http://symfony.com/schema/routing"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://symfony.com/schema/routing http://symfony.com/schema/routing/routing-1.0.xsd">
+
+    <route id="produit" path="/">
+        <default key="_controller">AmapBundle:Produit:index</default>
+    </route>
+
+    <route id="produit_show" path="/{id}/show">
+        <default key="_controller">AmapBundle:Produit:show</default>
+    </route>
+
+    <route id="produit_new" path="/new">
+        <default key="_controller">AmapBundle:Produit:new</default>
+    </route>
+
+    <route id="produit_create" path="/create" methods="POST">
+        <default key="_controller">AmapBundle:Produit:create</default>
+    </route>
+
+    <route id="produit_edit" path="/{id}/edit">
+        <default key="_controller">AmapBundle:Produit:edit</default>
+    </route>
+
+    <route id="produit_update" path="/{id}/update" methods="POST|PUT">
+        <default key="_controller">AmapBundle:Produit:update</default>
+    </route>
+
+    <route id="produit_delete" path="/{id}/delete" methods="POST|DELETE">
+        <default key="_controller">AmapBundle:Produit:delete</default>
+    </route>
+
+</routes>
