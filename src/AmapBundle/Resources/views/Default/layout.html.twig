@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Titre de la page</title>
+        {% stylesheets 'bundles/amap/css/*' filter='cssrewrite' %}
+            <link rel="stylesheet" href="{{ asset_url }}" />
+        {% endstylesheets %}
+    </head>
+    <body>
+        { % block header % }
+        
+        { % endblock % }
+        { % block main   % }{ % endblock % }
+        { % block footer % }{ % endblock % }
+    </body>
+</html>

@@ -1,4 +1,0 @@
-amap_produit:
-    resource: "@AmapBundle/Resources/config/routing/produit.xml"
-    prefix:   /produit
-
