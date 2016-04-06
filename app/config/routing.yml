@@ -1,9 +1,3 @@
-
-
-amap:
-    resource: "@AmapBundle/Resources/config/routing.xml"
-    prefix:   /
-
 amap:
     resource: "@AmapBundle/Resources/config/routing.xml"
     prefix:   /

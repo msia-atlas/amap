@@ -6,6 +6,10 @@
     </id>
     <field name="libelle" type="string" column="libelle" length="255"/>
     <field name="dateDebut" type="date" column="dateDebut"/>
+<<<<<<< HEAD
     <field name="dateFin" type="date" column="dateFin"/>
+=======
+     <field name="dateFin" type="date" column="dateFin"/>
+>>>>>>> 464b890df80ab8fa22d23aabfa358ab13e16922f
   </entity>
 </doctrine-mapping>

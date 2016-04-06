@@ -8,5 +8,6 @@
         <default key="_controller">AmapBundle:Default:index</default>
     </route>
 
+        <import resource="@AmapBundle/Resources/config/routing/produit.xml" prefix="/produit"/>
 
    </routes>

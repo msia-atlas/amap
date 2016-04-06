@@ -5,11 +5,11 @@
       <generator strategy="AUTO"/>
     </id>
     <field name="libelle" type="string" column="libelle" length="255"/>
-     <many-to-one field="saison" target-entity="Saison">
-            <join-column name="saison" referenced-column-name="id" />
-        </many-to-one>
-    <field name="typeProduit" type="integer" column="typeProduit"/>
+    <field name="typeProduit" type="string" column="typeProduit" length="255"/>
     <field name="uniteMesure" type="string" column="uniteMesure" length="255"/>
+    <many-to-one field="saison" target-entity="Saison">
+        <join-column name="idSaison" referenced-column-name="id"/>
+    </many-to-one>
     <field name="prixUnitaire" type="float" column="prixUnitaire"/>
   </entity>
 </doctrine-mapping>
