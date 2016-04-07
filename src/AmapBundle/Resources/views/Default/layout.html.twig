@@ -3,15 +3,33 @@
     <head>
         <meta charset="utf-8">
         <title>Titre de la page</title>
-        {% stylesheets 'bundles/amap/css/*' filter='cssrewrite' %}
-            <link rel="stylesheet" href="{{ asset_url }}" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        {% stylesheets
+            'bundles/amap/css/default.css'
+            'public/css/bootstrap.css'
+            filter='cssrewrite' %}
+        <link rel="stylesheet" href="{{ asset_url }}" />
         {% endstylesheets %}
     </head>
-    <body>
-        { % block header % }
+    <body><div class="container-fluid">
+            {% block header %}
+                {% include 'AmapBundle:Default:header.html.twig' %}
+            {% endblock %}
+        {% block main   %}{% endblock %}
+        {% block footer %}
+            {% include 'AmapBundle:Default:footer.html.twig' %}
+        {% endblock %}
+    </div>
+
+</body>
+{% block javascripts %}
+    {% javascripts 
+        'public/js/jquery.js'
+        '@AmapBundle/Resources/public/js/*'
+        'public/js/bootstrap.js'
         
-        { % endblock % }
-        { % block main   % }{ % endblock % }
-        { % block footer % }{ % endblock % }
-    </body>
+        %}
+        <script src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+{% endblock %}
 </html>
