@@ -1,49 +1,50 @@
 {% extends 'AmapBundle:Default:layout.html.twig' %}
 
 {% block main -%}
-    <h1>Produit list</h1>
+    <div class="row">
+        <div class ="col-md-12 titre">
+            <h1>Gestion des produits</h1>
+        </div>
+    </div>
+  
+    <div class="row">
+            <table class="table ">
+                <thead>
+                    <tr>
+                        <th>Libelle</th>
+                        <th>Saison</th>
+                        <th>Type Produit</th>
+                        <th>Unite de Mesure</th>
+                        <th>Prix Unitaire</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for entity in entities %}
+                        <tr>
+                            <td><a href="{{ path('produit_show', { 'id': entity.id }) }}">{{ entity.libelle }}</a></td>
+                            <td>{{ entity.saison }}</td>
+                            <td>{{ entity.typeProduit }}</td>
+                            <td>{{ entity.uniteMesure }}</td>
+                            <td>{{ entity.prixUnitaire }}</td>
+                            <td>
 
-    <table class="records_list">
-        <thead>
-            <tr>
-                <th>Libelle</th>
-                <th>Saison</th>
-                <th>Typeproduit</th>
-                <th>Unitemesure</th>
-                <th>Prixunitaire</th>
-                <th>Id</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for entity in entities %}
-            <tr>
-                <td><a href="{{ path('produit_show', { 'id': entity.id }) }}">{{ entity.libelle }}</a></td>
-                <td>{{ entity.saison }}</td>
-                <td>{{ entity.typeProduit }}</td>
-                <td>{{ entity.uniteMesure }}</td>
-                <td>{{ entity.prixUnitaire }}</td>
-                <td>{{ entity.id }}</td>
-                <td>
-                <ul>
-                    <li>
-                        <a href="{{ path('produit_show', { 'id': entity.id }) }}">show</a>
-                    </li>
-                    <li>
-                        <a href="{{ path('produit_edit', { 'id': entity.id }) }}">edit</a>
-                    </li>
-                </ul>
-                </td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+                                <a href="{{ path('produit_edit', { 'id': entity.id }) }}" class="btn btn-default btn-xs" role="button">Modifier</a>
 
-        <ul>
-        <li>
-            <a href="{{ path('produit_new') }}">
-                Create a new entry
-            </a>
-        </li>
-    </ul>
-    {% endblock %}
+                                <a href="{{ path('produit_delete', { 'id': entity.id }) }}" class="btn btn-danger btn-xs" role="button">Supprimer</a>
+
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+  
+    </div>
+    <div class="row">
+
+        <a href="{{ path('produit_new') }}" class="btn btn-success pull-right" role="button">
+            Ajouter un produit
+        </a>
+
+    </div>
+{% endblock %}

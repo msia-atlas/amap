@@ -1,16 +1,64 @@
-{% extends '::base.html.twig' %}
+{% extends 'AmapBundle:Default:layout.html.twig' %}
 
-{% block body -%}
-    <h1>Produit edit</h1>
-
-    {{ form(edit_form) }}
-
+{% block main -%}
+    <h1>Modifier un produit</h1>
+    <div class="row">
+        <div class ="col-md-4">
+            <div class="row">
+                <div class ="col-md-6">
+                    {{ form_label(edit_form.libelle) }}   
+                </div>
+                <div class ="col-md-6">
+                    {{ form_widget(edit_form.libelle) }}
+                </div>
+            </div>
+            <div class="row">
+                <div class ="col-md-6">
+                    {{ form_label(edit_form.saison) }}   
+                </div>
+                <div class ="col-md-6">
+                    {{ form_widget(edit_form.saison) }}
+                </div>
+            </div>
+            <div class="row">
+                <div class ="col-md-6">
+                    {{ form_label(edit_form.typeProduit) }}   
+                </div>
+                <div class ="col-md-6">
+                    {{ form_widget(edit_form.typeProduit) }}
+                </div>
+            </div>
+            <div class="row">
+                <div class ="col-md-6">
+                    {{ form_label(edit_form.uniteMesure) }}   
+                </div>
+                <div class ="col-md-6">
+                    {{ form_widget(edit_form.uniteMesure) }}
+                </div>
+            </div>
+            <div class="row">
+                <div class ="col-md-6">
+                    {{ form_label(edit_form.prixUnitaire) }}   
+                </div>
+                <div class ="col-md-6">
+                    {{ form_widget(edit_form.prixUnitaire) }}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        {{ form(edit_form) }}
+    </div>
+    <div class="row">
         <ul class="record_actions">
-    <li>
-        <a href="{{ path('produit') }}">
-            Back to the list
-        </a>
-    </li>
-    <li>{{ form(delete_form) }}</li>
-</ul>
+            <li>
+                <a href="{{ path('produit') }}">
+                    Retourner à la liste des produits
+                </a>
+            </li>
+            <li>{{ form(delete_form) }}</li>
+        </ul>
+    </div>
+
+
 {% endblock %}

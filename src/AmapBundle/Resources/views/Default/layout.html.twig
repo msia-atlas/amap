@@ -12,24 +12,31 @@
         {% endstylesheets %}
     </head>
     <body><div class="container-fluid">
-            {% block header %}
-                {% include 'AmapBundle:Default:header.html.twig' %}
-            {% endblock %}
-        {% block main   %}{% endblock %}
-        {% block footer %}
-            {% include 'AmapBundle:Default:footer.html.twig' %}
-        {% endblock %}
-    </div>
+            <div class="row">
+                {% block header %}
+                    {% include 'AmapBundle:Default:header.html.twig' %}
+                {% endblock %}
+            </div>
+            <div class="container">
+                {% block main   %}
+                {% endblock %}
+            </div>
+            <div class="row">
+                {% block footer %}
+                    {% include 'AmapBundle:Default:footer.html.twig' %}
+                {% endblock %}
+            </div>
+        </div>
 
-</body>
-{% block javascripts %}
-    {% javascripts 
+    </body>
+    {% block javascripts %}
+        {% javascripts 
         'public/js/jquery.js'
         '@AmapBundle/Resources/public/js/*'
         'public/js/bootstrap.js'
         
         %}
         <script src="{{ asset_url }}"></script>
-    {% endjavascripts %}
-{% endblock %}
+        {% endjavascripts %}
+    {% endblock %}
 </html>
