@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<routes xmlns="http://symfony.com/schema/routing"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://symfony.com/schema/routing http://symfony.com/schema/routing/routing-1.0.xsd">
+
+    <route id="contratConsommateur" path="/">
+        <default key="_controller">AmapBundle:ContratConsommateur:index</default>
+    </route>
+
+    <route id="contratConsommateur_show" path="/{id}/show">
+        <default key="_controller">AmapBundle:ContratConsommateur:show</default>
+    </route>
+
+    <route id="contratConsommateur_new" path="/new">
+        <default key="_controller">AmapBundle:ContratConsommateur:new</default>
+    </route>
+
+    <route id="contratConsommateur_create" path="/create" methods="POST">
+        <default key="_controller">AmapBundle:ContratConsommateur:create</default>
+    </route>
+
+    <route id="contratConsommateur_edit" path="/{id}/edit">
+        <default key="_controller">AmapBundle:ContratConsommateur:edit</default>
+    </route>
+
+    <route id="contratConsommateur_update" path="/{id}/update" methods="POST|PUT">
+        <default key="_controller">AmapBundle:ContratConsommateur:update</default>
+    </route>
+
+    <route id="contratConsommateur_delete" path="/{id}/delete" methods="POST|DELETE">
+        <default key="_controller">AmapBundle:ContratConsommateur:delete</default>
+    </route>
+
+</routes>

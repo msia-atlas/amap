@@ -1,0 +1,46 @@
+{% extends 'AmapBundle:Default:layout.html.twig' %}
+
+{% block main -%}
+<div class="row">
+    <div class ="col-md-12 titre">
+        <h1>Gestion des contrats consomateurs</h1>
+    </div>
+</div>
+<div class="row">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Consommateur</th>
+                <th>Listelivraison</th>
+                <th>Id</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td><a href="{{ path('contratConsommateur_show', { 'id': entity.id }) }}">{{ entity.consommateur }}</a></td>
+                <td>{{ entity.listeLivraison }}</td>
+                <td>{{ entity.id }}</td>
+                <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('contratConsommateur_show', { 'id': entity.id }) }}">show</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('contratConsommateur_edit', { 'id': entity.id }) }}">edit</a>
+                    </li>
+                </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+<div class="row">
+
+    <a href="{{ path('contratConsommateur_new') }}" class="btn btn-success pull-right" role="button">
+        Ajouter un magasin
+    </a>
+</div>
+{% endblock %}
