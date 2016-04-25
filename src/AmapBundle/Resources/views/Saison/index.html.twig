@@ -1,0 +1,48 @@
+{% extends 'AmapBundle:Default:layout.html.twig' %}
+
+{% block main -%}
+    <div class="row">
+        <div class ="col-md-12 titre">
+            <h1>Gestion des saison</h1>
+        </div>
+    </div>
+
+     <div class="row">
+        <table class="table ">
+        <thead>
+            <tr>
+                <th>Libelle</th>
+                <th>Datedebut</th>
+                <th>Datefin</th>
+                <th>Id</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td><a href="{{ path('saison_show', { 'id': entity.id }) }}">{{ entity.libelle }}</a></td>
+                <td>{% if entity.dateDebut %}{{ entity.dateDebut|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if entity.dateFin %}{{ entity.dateFin|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ entity.id }}</td>
+                <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('saison_edit', { 'id': entity.id }) }}"class="btn btn-default btn-xs" role="button">Modifier</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('saison_delete', { 'id': entity.id }) }}" class="btn btn-default btn-xs" role="button">Supprimer</a>
+                    </li>
+                </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <div class="row">
+
+        <a href="{{ path('saison_new') }}" class="btn btn-success pull-right" role="button">
+            Ajouter une saison
+        </a>
+    </div>
+    {% endblock %}

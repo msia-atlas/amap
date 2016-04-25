@@ -1,0 +1,4 @@
+amap_saison:
+    resource: "@AmapBundle/Resources/config/routing/saison.xml"
+    prefix:   /saison
+

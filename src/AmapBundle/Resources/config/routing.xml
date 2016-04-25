@@ -9,5 +9,6 @@
     </route>
 
         <import resource="@AmapBundle/Resources/config/routing/produit.xml" prefix="/produit"/>
+        <import resource="@AmapBundle/Resources/config/routing/saison.xml" prefix="/saison"/>
 
    </routes>
