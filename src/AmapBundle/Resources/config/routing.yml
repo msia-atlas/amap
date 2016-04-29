@@ -1,4 +1,22 @@
+<<<<<<< HEAD
+=======
+amap_contratProducteur:
+    resource: "@AmapBundle/Resources/config/routing/contratproducteur.xml"
+    prefix:   /contratProducteur
+
+>>>>>>> 3c0155268c47f5d7c634c6eb1b7a646c6ac757eb
 amap_contratconsommateur:
     resource: "@AmapBundle/Resources/config/routing/contratconsommateur.xml"
     prefix:   /contratconsommateur
 
+<<<<<<< HEAD
+=======
+amap_magasin:
+    resource: "@AmapBundle/Resources/config/routing/magasin.xml"
+    prefix:   /magasin
+
+amap_saison:
+    resource: "@AmapBundle/Resources/config/routing/saison.xml"
+    prefix:   /saison
+
+>>>>>>> 3c0155268c47f5d7c634c6eb1b7a646c6ac757eb

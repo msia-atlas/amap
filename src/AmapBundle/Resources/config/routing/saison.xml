@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<routes xmlns="http://symfony.com/schema/routing"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://symfony.com/schema/routing http://symfony.com/schema/routing/routing-1.0.xsd">
+
+    <route id="saison" path="/">
+        <default key="_controller">AmapBundle:Saison:index</default>
+    </route>
+
+    <route id="saison_show" path="/{id}/show">
+        <default key="_controller">AmapBundle:Saison:show</default>
+    </route>
+
+    <route id="saison_new" path="/new">
+        <default key="_controller">AmapBundle:Saison:new</default>
+    </route>
+
+    <route id="saison_create" path="/create" methods="POST">
+        <default key="_controller">AmapBundle:Saison:create</default>
+    </route>
+
+    <route id="saison_edit" path="/{id}/edit">
+        <default key="_controller">AmapBundle:Saison:edit</default>
+    </route>
+
+    <route id="saison_update" path="/{id}/update" methods="POST|PUT">
+        <default key="_controller">AmapBundle:Saison:update</default>
+    </route>
+
+    <route id="saison_delete" path="/{id}/delete" methods="POST|DELETE">
+        <default key="_controller">AmapBundle:Saison:delete</default>
+    </route>
+
+</routes>

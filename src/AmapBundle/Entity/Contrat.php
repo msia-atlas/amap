@@ -7,7 +7,11 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Contrat
  */
+<<<<<<< HEAD
 class  Contrat
+=======
+abstract class Contrat
+>>>>>>> 3c0155268c47f5d7c634c6eb1b7a646c6ac757eb
 {
     /**
      * @var integer

@@ -38,5 +38,11 @@
 
 # Composer PHAR
 /composer.phar
+<<<<<<< HEAD
 
 src/AppBundle/Tests/*
+=======
+css
+js
+fonts
+>>>>>>> 3c0155268c47f5d7c634c6eb1b7a646c6ac757eb
