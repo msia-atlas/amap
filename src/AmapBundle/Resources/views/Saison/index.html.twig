@@ -1,4 +1,4 @@
-{% extends 'AmapBundle:Default:layout.html.twig' %}
+{% extends 'AmapBundle:Default:tableauLayout.html.twig' %}
 
 {% block main -%}
 <div class="row">
@@ -8,7 +8,7 @@
 </div>
 
 <div class="row">
-    <table class="table">
+    <table class="table" id="tableauGestion">
        <thead>
            <tr>
                <th>Libelle</th>
@@ -46,4 +46,6 @@
         Ajouter une saison
     </a>
 </div>
+
+
 {% endblock %}

@@ -1,0 +1,10 @@
+{# empty Twig template #}
+{% extends 'AmapBundle:Default:layout.html.twig' %}
+ {% block javascripts %}
+      {% javascripts 
+     'public/js/dataTables.bootstrap.js'
+     '@AmapBundle/Resources/public/js/dataTables.js'
+%}
+<script src="{{ asset_url }}"></script>
+        {% endjavascripts %}
+ {% endblock %}

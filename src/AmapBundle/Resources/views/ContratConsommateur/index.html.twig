@@ -7,7 +7,7 @@
     </div>
 </div>
 <div class="row">
-    <table class="table">
+    <table class="table" id="tableauGestion">
         <thead>
             <tr>
                 <th>Consommateur</th>
@@ -44,3 +44,8 @@
     </a>
 </div>
 {% endblock %}
+{% block javascripts %}
+    $(document).ready(function() {
+    $('#tableauGestion').DataTable();
+} );
+        {% endblock %}
