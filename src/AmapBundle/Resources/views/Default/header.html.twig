@@ -9,13 +9,20 @@
             <a href="index" class="col-md-2 item-menu">Gesiton des Amaps</a>
             <a href="index" class="col-md-2 item-menu">Gesiton des Produits</a>
             <a href="index" class="col-md-2 item-menu">Gesiton des Saison</a>
-   <a href="index" class="col-md-2 item-menu">Gesiton des paniers</a>
-      <a href="index" class="col-md-2 item-menu">Gesiton des contrats</a>
-         <a href="index" class="col-md-2 item-menu">Mes contrats</a>
+            <a href="index" class="col-md-2 item-menu">Gesiton des paniers</a>
+            <a href="index" class="col-md-2 item-menu">Gesiton des contrats</a>
+            <a href="index" class="col-md-2 item-menu">Mes contrats</a>
         </div>
         <div class="login col-md-1 pull-right">
             <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
-            Connexion
+            {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                Connecté en tant que {{ app.user.username }}
+                -
+                <a href="{{ path('fos_user_security_logout') }}">Déconnexion</a>
+            {% else %}
+                <a href="{{ path('fos_user_security_login') }}">Connexion</a>
+                <a href="{{ path('fos_user_registration_register') }}">Inscription</a>
+            {% endif %}
         </div>
     </div>
 </div>

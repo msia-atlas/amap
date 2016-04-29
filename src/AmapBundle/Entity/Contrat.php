@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Contrat
  */
-class Contrat
+class  Contrat
 {
     /**
      * @var integer

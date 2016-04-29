@@ -2,17 +2,13 @@
 
 namespace AmapBundle\Entity;
 
+use FOS\UserBundle\Model\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
-use FOS\UserBundle\Entity\User as BaseUser;
 /**
  * User
  */
-class Personne extends BaseUser
+abstract class Personne extends BaseUser
 {
-    /**
-     * @var integer
-     */
-    private $id;
 
     /**
      *

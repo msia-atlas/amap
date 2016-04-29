@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
-  <entity name="AmapBundle\Entity\Producteur">
-    <field name="produitsQuantite" type="array" column="produitsQuantite"/>
+  <entity name="AmapBundle\Entity\Personne">
+    <id name="id" type="integer" column="id">
+      <generator strategy="AUTO"/>
+    </id>
+    <field name="adresse" type="string" column="adresse" length="255"/>
+    <field name="nom" type="string" column="nom" length="255"/>
+    <field name="prenom" type="string" column="prenom" length="255"/>
   </entity>
 </doctrine-mapping>

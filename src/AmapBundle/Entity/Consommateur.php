@@ -7,12 +7,9 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Consommateur
  */
-class Consommateur
+class Consommateur extends Personne
 {
-    /**
-     * @var integer
-     */
-    private $id;
+
 
     /**
      * @var string

@@ -7,12 +7,9 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Producteur
  */
-class Producteur
+class Producteur extends Personne
 {
-    /**
-     * @var integer
-     */
-    private $id;
+
 
     /**
      * @var array

@@ -24,6 +24,7 @@ framework:
         handler_id:  ~
     fragments:       ~
     http_method_override: true
+    translator:      { fallback: %locale% }
 
 # Twig Configuration
 twig:
@@ -104,3 +105,10 @@ swiftmailer:
     password:  "%mailer_password%"
     spool:     { type: memory }
 
+fos_user:
+    db_driver: orm # other valid values are 'mongodb', 'couchdb' and 'propel'
+    firewall_name: main
+    user_class: AmapBundle\Entity\Personne
+services:
+    fos_user.doctrine_registry:
+        alias: doctrine

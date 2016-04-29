@@ -1,0 +1,4 @@
+amap_contratconsommateur:
+    resource: "@AmapBundle/Resources/config/routing/contratconsommateur.xml"
+    prefix:   /contratconsommateur
+
