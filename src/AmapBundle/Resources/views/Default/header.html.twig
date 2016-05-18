@@ -4,34 +4,42 @@
         <div class="logo col-md-1">
             <img src="{{ asset('bundles/amap/images/logo.jpg') }}"/>
         </div> 
-        <div class="menu col-md-10 text-center">
+        <div class="menu col-md-9 text-center">
             <a href="index" class="col-md-2 item-menu">Accueil</a>
-<<<<<<< HEAD
-            <a href="index" class="col-md-2 item-menu">Gesiton des Amaps</a>
-            <a href="index" class="col-md-2 item-menu">Gesiton des Produits</a>
-            <a href="index" class="col-md-2 item-menu">Gesiton des Saison</a>
-            <a href="index" class="col-md-2 item-menu">Gesiton des paniers</a>
-            <a href="index" class="col-md-2 item-menu">Gesiton des contrats</a>
-=======
-            <a href="index" class="col-md-2 item-menu">Gestion des Amaps</a>
-            <a href="{{path("magasin")}}" class="col-md-2 item-menu">Gestion des magasins</a>
+            {% if is_granted("ROLE_DROIT_ACCES_RESPONSABLE") %}
+                <a href="index" class="col-md-2 item-menu">Gestion des Amaps</a>
+                <a href="{{path("magasin")}}" class="col-md-2 item-menu">Gestion des magasins</a>
+                <a href="{{path("contratConsommateur")}}" class="col-md-2 item-menu">Gestion des contrats Consommateurs</a>
+                <a href="index" class="col-md-2 item-menu">Gestion des paniers</a>
+            {%endif%}
             <a href="index" class="col-md-2 item-menu">Gestion des Produits</a>
             <a href="{{path("saison")}}" class="col-md-2 item-menu">Gestion des Saison</a>
-            <a href="index" class="col-md-2 item-menu">Gestion des paniers</a>
-            <a href="{{path("contratConsommateur")}}" class="col-md-2 item-menu">Gestion des contrats Consommateurs</a>
->>>>>>> 3c0155268c47f5d7c634c6eb1b7a646c6ac757eb
             <a href="index" class="col-md-2 item-menu">Mes contrats</a>
         </div>
-        <div class="login col-md-1 pull-right">
-            <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
-            {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-                Connecté en tant que {{ app.user.username }}
-                -
-                <a href="{{ path('fos_user_security_logout') }}">Déconnexion</a>
-            {% else %}
-                <a href="{{ path('fos_user_security_login') }}">Connexion</a>
-                <a href="{{ path('fos_user_registration_register') }}">Inscription</a>
-            {% endif %}
+        <div class="login col-md-2 pull-right">
+            <div class="row">
+                <span class="glyphicon glyphicon-user pull-left" aria-hidden="true"></span>
+                {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+
+                    <div class ="col-md-11">
+                        Bonjour {{ app.user.username }}
+                    </div>
+                    <div class ="col-md-11">
+                        <a href="{{ path('fos_user_profile_show') }}">Mon profile</a>
+                    </div>
+                    <div class ="col-md-11">
+                        <a href="{{ path('fos_user_security_logout') }}">Déconnexion</a>
+                    </div>
+
+                {% else %}
+                    <div class ="col-md-11">
+                        <a href="{{ path('fos_user_security_login') }}">Connexion</a>
+                    </div>
+                    <div class ="col-md-11">
+                        <a href="{{ path('fos_user_registration_register') }}">Inscription</a>
+                    </div>
+                {% endif %}
+            </div>
         </div>
     </div>
 </div>

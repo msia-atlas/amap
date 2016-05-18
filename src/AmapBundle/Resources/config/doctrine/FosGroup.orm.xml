@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
-  <entity name="AmapBundle\Entity\ContratProducteur">
-    <field name="producteur" type="string" column="producteur" length="255"/>
-    <field name="quantiteAProduire" type="integer" column="quantiteAProduire"/>
+  <entity name="AmapBundle\Entity\FosGroup"   repository-class="AmapBundle\Repository\FosGroupRepository">
+    <id name="id" type="integer" column="id">
+      <generator strategy="AUTO"/>
+    </id>
+    <field name="publique" type="boolean" column="publique" length="255"/>
   </entity>
 </doctrine-mapping>

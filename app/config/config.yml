@@ -16,7 +16,7 @@ framework:
     templating:
         engines: ['twig']
         #assets_version: SomeVersionScheme
-    default_locale:  "%locale%"
+    default_locale:  "fr_FR"
     trusted_hosts:   ~
     trusted_proxies: ~
     session:
@@ -109,6 +109,16 @@ fos_user:
     db_driver: orm # other valid values are 'mongodb', 'couchdb' and 'propel'
     firewall_name: main
     user_class: AmapBundle\Entity\Personne
+    registration:
+        form:
+            type: AmapBundle\Form\RegistrationType
+    profile:
+        form:
+            type: AmapBundle\Form\ProfileType
+    group:
+         group_class: AmapBundle\Entity\FosGroups
 services:
     fos_user.doctrine_registry:
         alias: doctrine
+
+  
