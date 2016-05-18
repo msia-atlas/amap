@@ -1,9 +1,12 @@
-{% extends '::base.html.twig' %}
-
-{% block body -%}
-    <h1>Responsable list</h1>
-
-    <table class="records_list">
+{% extends 'AmapBundle:Default:layout.html.twig' %}
+{% block main -%}
+<div class="row">
+    <div class ="col-md-12 titre">
+        <h1>Gestion des responsables</h1>
+    </div>
+</div>
+<div class="row">
+     <table class="table" id="tableauGestion">
         <thead>
             <tr>
                 <th>Telephone</th>
@@ -27,5 +30,10 @@
         {% endfor %}
         </tbody>
     </table>
-
-    {% endblock %}
+    </div>
+    <div class="row">
+    <a href="{{ path('responsable_new') }}" class="btn btn-success pull-right" role="button">
+        Ajouter un responsable
+    </a>
+</div>
+{% endblock %}

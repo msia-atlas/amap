@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 amap_responsable:
     resource: "@AmapBundle/Resources/config/routing/responsable.xml"
     prefix:   /responsable
@@ -5,4 +6,9 @@ amap_responsable:
 amap_amap:
     resource: "@AmapBundle/Resources/config/routing/amap.xml"
     prefix:   /amap
+=======
+amap_preferenceConsommateur:
+    resource: "@AmapBundle/Resources/config/routing/preferenceconsommateur.xml"
+    prefix:   /preferenceConsommateur
+>>>>>>> 829dee79caede16be16f95bc6a67f11c9ca63338
 
