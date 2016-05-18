@@ -7,21 +7,14 @@
     <route id="index" path="/">
         <default key="_controller">AmapBundle:Default:index</default>
     </route>
-
-<<<<<<< HEAD
     <import resource="@AmapBundle/Resources/config/routing/produit.xml" prefix="/produit"/>
     <import resource="@FOSUserBundle/Resources/config/routing/all.xml"/>
     <import resource="@AmapBundle/Resources/config/routing/produit.xml" prefix="/produit"/>
     <import resource="@AmapBundle/Resources/config/routing/saison.xml" prefix="/saison"/>
     <import resource="@AmapBundle/Resources/config/routing/magasin.xml" prefix="/magasin"/>
     <import resource="@AmapBundle/Resources/config/routing/contratConsommateur.xml" prefix="contratConsommateur"/>
+        <import resource="@AmapBundle/Resources/config/routing/contratProducteur.xml" prefix="contratProducteur"/>
 
 </routes>
-=======
-        <import resource="@AmapBundle/Resources/config/routing/produit.xml" prefix="/produit"/>
-        <import resource="@AmapBundle/Resources/config/routing/saison.xml" prefix="/saison"/>
-        <import resource="@AmapBundle/Resources/config/routing/magasin.xml" prefix="/magasin"/>
-        <import resource="@AmapBundle/Resources/config/routing/contratConsommateur.xml" prefix="contratConsommateur"/>
-        <import resource="@AmapBundle/Resources/config/routing/contratProducteur.xml" prefix="contratProducteur"/>
->>>>>>> 7ab3a2924cbd81c78c2f3741c8978513ec66409c
+
 
