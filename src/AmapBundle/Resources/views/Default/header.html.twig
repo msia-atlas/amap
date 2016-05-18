@@ -4,20 +4,43 @@
         <div class="logo col-md-1">
             <img src="{{ asset('bundles/amap/images/logo.jpg') }}"/>
         </div> 
-        <div class="menu col-md-10 text-center">
+        <div class="menu col-md-9 text-center">
             <a href="index" class="col-md-2 item-menu">Accueil</a>
-            <a href="index" class="col-md-2 item-menu">Gestion des Amaps</a>
-            <a href="{{path("magasin")}}" class="col-md-2 item-menu">Gestion des magasins</a>
+            {% if is_granted("ROLE_DROIT_ACCES_RESPONSABLE") %}
+                <a href="index" class="col-md-2 item-menu">Gestion des Amaps</a>
+                <a href="{{path("magasin")}}" class="col-md-2 item-menu">Gestion des magasins</a>
+                <a href="{{path("contratConsommateur")}}" class="col-md-2 item-menu">Gestion des contrats Consommateurs</a>
+                <a href="index" class="col-md-2 item-menu">Gestion des paniers</a>
+            {%endif%}
             <a href="index" class="col-md-2 item-menu">Gestion des Produits</a>
             <a href="{{path("saison")}}" class="col-md-2 item-menu">Gestion des Saison</a>
-            <a href="index" class="col-md-2 item-menu">Gestion des paniers</a>
-            <a href="{{path("contratConsommateur")}}" class="col-md-2 item-menu">Gestion des contrats Consommateurs</a>
             <a href="index" class="col-md-2 item-menu">Mes contrats</a>
             <a href="{{path("contratProducteur")}}" class="col-md-2 item-menu">Gestion des contrats Producteur</a>
         </div>
-        <div class="login col-md-1 pull-right">
-            <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
-            Connexion
+        <div class="login col-md-2 pull-right">
+            <div class="row">
+                <span class="glyphicon glyphicon-user pull-left" aria-hidden="true"></span>
+                {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+
+                    <div class ="col-md-11">
+                        Bonjour {{ app.user.username }}
+                    </div>
+                    <div class ="col-md-11">
+                        <a href="{{ path('fos_user_profile_show') }}">Mon profile</a>
+                    </div>
+                    <div class ="col-md-11">
+                        <a href="{{ path('fos_user_security_logout') }}">Déconnexion</a>
+                    </div>
+
+                {% else %}
+                    <div class ="col-md-11">
+                        <a href="{{ path('fos_user_security_login') }}">Connexion</a>
+                    </div>
+                    <div class ="col-md-11">
+                        <a href="{{ path('fos_user_registration_register') }}">Inscription</a>
+                    </div>
+                {% endif %}
+            </div>
         </div>
     </div>
 </div>

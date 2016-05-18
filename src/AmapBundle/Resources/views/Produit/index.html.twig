@@ -23,7 +23,7 @@
                     {% for entity in entities %}
                         <tr>
                             <td><a href="{{ path('produit_show', { 'id': entity.id }) }}">{{ entity.libelle }}</a></td>
-                            <td>{{ entity.saison }}</td>
+                            <td>{{ entity.saison.libelle }}</td>
                             <td>{{ entity.typeProduit }}</td>
                             <td>{{ entity.uniteMesure }}</td>
                             <td>{{ entity.prixUnitaire }}</td>

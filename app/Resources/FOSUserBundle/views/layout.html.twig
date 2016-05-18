@@ -1,0 +1,16 @@
+{% extends 'AmapBundle:Default:layout.html.twig' %}
+{% block main -%}
+    <div class="row">
+        <div class ="col-md-12 titre">
+            <h1>Connexion</h1>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+        {% block fos_user_content %}
+
+        {% endblock fos_user_content %}
+        </div>
+    </div>
+{% endblock %}

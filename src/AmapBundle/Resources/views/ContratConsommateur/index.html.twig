@@ -1,3 +1,11 @@
+<<<<<<< HEAD
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>ContratConsommateur list</h1>
+
+    <table class="records_list">
+=======
 {% extends 'AmapBundle:Default:layout.html.twig' %}
 
 {% block main -%}
@@ -8,6 +16,7 @@
 </div>
 <div class="row">
     <table class="table" id="tableauGestion">
+>>>>>>> 3c0155268c47f5d7c634c6eb1b7a646c6ac757eb
         <thead>
             <tr>
                 <th>Consommateur</th>
@@ -19,16 +28,27 @@
         <tbody>
         {% for entity in entities %}
             <tr>
+<<<<<<< HEAD
+                <td><a href="{{ path('contratconsommateur_show', { 'id': entity.id }) }}">{{ entity.consommateur }}</a></td>
+=======
                 <td><a href="{{ path('contratConsommateur_show', { 'id': entity.id }) }}">{{ entity.consommateur }}</a></td>
+>>>>>>> 3c0155268c47f5d7c634c6eb1b7a646c6ac757eb
                 <td>{{ entity.listeLivraison }}</td>
                 <td>{{ entity.id }}</td>
                 <td>
                 <ul>
                     <li>
+<<<<<<< HEAD
+                        <a href="{{ path('contratconsommateur_show', { 'id': entity.id }) }}">show</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('contratconsommateur_edit', { 'id': entity.id }) }}">edit</a>
+=======
                         <a href="{{ path('contratConsommateur_show', { 'id': entity.id }) }}">show</a>
                     </li>
                     <li>
                         <a href="{{ path('contratConsommateur_edit', { 'id': entity.id }) }}">edit</a>
+>>>>>>> 3c0155268c47f5d7c634c6eb1b7a646c6ac757eb
                     </li>
                 </ul>
                 </td>
@@ -36,6 +56,17 @@
         {% endfor %}
         </tbody>
     </table>
+<<<<<<< HEAD
+
+        <ul>
+        <li>
+            <a href="{{ path('contratconsommateur_new') }}">
+                Create a new entry
+            </a>
+        </li>
+    </ul>
+    {% endblock %}
+=======
 </div>
 <div class="row">
 
@@ -49,3 +80,4 @@
     $('#tableauGestion').DataTable();
 } );
         {% endblock %}
+>>>>>>> 3c0155268c47f5d7c634c6eb1b7a646c6ac757eb

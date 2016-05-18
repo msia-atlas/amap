@@ -1,17 +1,20 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
 <routes xmlns="http://symfony.com/schema/routing"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://symfony.com/schema/routing http://symfony.com/schema/routing/routing-1.0.xsd">
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://symfony.com/schema/routing http://symfony.com/schema/routing/routing-1.0.xsd">
 
     <route id="index" path="/">
         <default key="_controller">AmapBundle:Default:index</default>
     </route>
-
-        <import resource="@AmapBundle/Resources/config/routing/produit.xml" prefix="/produit"/>
-        <import resource="@AmapBundle/Resources/config/routing/saison.xml" prefix="/saison"/>
-        <import resource="@AmapBundle/Resources/config/routing/magasin.xml" prefix="/magasin"/>
-        <import resource="@AmapBundle/Resources/config/routing/contratConsommateur.xml" prefix="contratConsommateur"/>
+    <import resource="@AmapBundle/Resources/config/routing/produit.xml" prefix="/produit"/>
+    <import resource="@FOSUserBundle/Resources/config/routing/all.xml"/>
+    <import resource="@AmapBundle/Resources/config/routing/produit.xml" prefix="/produit"/>
+    <import resource="@AmapBundle/Resources/config/routing/saison.xml" prefix="/saison"/>
+    <import resource="@AmapBundle/Resources/config/routing/magasin.xml" prefix="/magasin"/>
+    <import resource="@AmapBundle/Resources/config/routing/contratConsommateur.xml" prefix="contratConsommateur"/>
         <import resource="@AmapBundle/Resources/config/routing/contratProducteur.xml" prefix="contratProducteur"/>
 
-   </routes>
+</routes>
+
+

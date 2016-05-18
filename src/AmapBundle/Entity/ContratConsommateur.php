@@ -7,7 +7,9 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * ContratConsommateur
  */
+
 class ContratConsommateur extends Contrat
+
 {
 
     /**
