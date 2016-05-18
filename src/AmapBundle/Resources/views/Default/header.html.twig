@@ -10,12 +10,18 @@
                 <a href="index" class="col-md-2 item-menu">Gestion des Amaps</a>
                 <a href="{{path("magasin")}}" class="col-md-2 item-menu">Gestion des magasins</a>
                 <a href="{{path("contratConsommateur")}}" class="col-md-2 item-menu">Gestion des contrats Consommateurs</a>
+                <a href="{{path("contratProducteur")}}" class="col-md-2 item-menu">Gestion des contrats Producteur</a>
                 <a href="index" class="col-md-2 item-menu">Gestion des paniers</a>
             {%endif%}
-            <a href="index" class="col-md-2 item-menu">Gestion des Produits</a>
-            <a href="{{path("saison")}}" class="col-md-2 item-menu">Gestion des Saison</a>
-            <a href="index" class="col-md-2 item-menu">Mes contrats</a>
-            <a href="{{path("contratProducteur")}}" class="col-md-2 item-menu">Gestion des contrats Producteur</a>
+            {% if is_granted("ROLE_DROIT_ACCES_ADMINISTRATEUR") %}
+                <a href="index" class="col-md-2 item-menu">Gestion des Produits</a>
+                <a href="{{path("saison")}}" class="col-md-2 item-menu">Gestion des Saison</a>
+            {%endif%}
+            {% if is_granted("ROLE_DROIT_ACCES_CONSOMMATEUR") %}
+                <a href="index" class="col-md-2 item-menu">Mes contrats</a>
+                <a href="{{path("preferenceConsommateur")}}" class="col-md-2 item-menu">Gestion de mes préférences</a>
+            {%endif%}
+
         </div>
         <div class="login col-md-2 pull-right">
             <div class="row">

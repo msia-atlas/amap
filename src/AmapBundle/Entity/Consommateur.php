@@ -3,12 +3,14 @@
 namespace AmapBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use AmapBundle\Repository\ConsommateurRepository;
 
 /**
  * Consommateur
  */
 class Consommateur extends Personne
 {
+
 
 
     /**
@@ -49,4 +51,16 @@ class Consommateur extends Personne
     {
         return $this->procuration;
     }
+    
+
+    function getUserName() {
+        return $this->userName;
+    }
+
+    function setUserName($userName) {
+        $this->userName = $userName;
+    }
+
+
+
 }
