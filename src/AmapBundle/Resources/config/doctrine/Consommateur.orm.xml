@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
   <entity name="AmapBundle\Entity\Consommateur" repository-class="AmapBundle\Repository\ConsommateurRepository">
-    <field name="procuration" type="string" column="procuration" length="255"/>
+    <field name="procuration" type="string" column="procuration" length="255" nullable="true"/>
   </entity>
 </doctrine-mapping>

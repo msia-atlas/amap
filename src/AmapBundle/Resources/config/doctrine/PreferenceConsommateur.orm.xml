@@ -8,7 +8,7 @@
         <many-to-one field="produit" target-entity="Produit">
             <join-column name="idProduit" referenced-column-name="id" />
         </many-to-one>
-        <many-to-one field="consommateur" target-entity="Consommateur">
+        <many-to-one field="consommateur" target-entity="Personne">
             <join-column name="idComsommateur" referenced-column-name="id" />
         </many-to-one>
     </entity>

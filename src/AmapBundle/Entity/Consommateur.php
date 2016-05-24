@@ -51,16 +51,18 @@ class Consommateur extends Personne
     {
         return $this->procuration;
     }
-    
-
-    function getUserName() {
-        return $this->userName;
+    public  function loadFromParentObj( $parentObj )
+    {
+        $objValues = get_object_vars($parentObj); // return array of object values
+        foreach($objValues AS $key=>$value)
+        {
+             $this->$key = $value;
+        }
     }
 
-    function setUserName($userName) {
-        $this->userName = $userName;
+    public function setId(){
+        $this->id = null;
     }
-
 
 
 }

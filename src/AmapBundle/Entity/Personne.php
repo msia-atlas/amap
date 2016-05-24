@@ -54,6 +54,7 @@ class Personne extends BaseUser {
      */
     protected $groups;
 
+    private $procuration = null;
     /**
      * Get id
      *
@@ -94,33 +95,8 @@ class Personne extends BaseUser {
     function setGroups($groups) {
         $this->groups = array($groups);
     }
+    
+   
 
-    /**
-     * 
-     * @param AbstractManagerRegistry|ObjectManager $em
-     */
-    public function cast($em) {
-        $id = $this->id;
-        switch ($this->groups[0]->getName()) {
-            case "ResponsableAmap":
-                break;
-            case "Consommateur":
-                $user = $em->getRepository('AmapBundle:Consommateur')->getById($id);
-                if (!$user) {
-                    $user = new Consommateur();
-                   // setDefautUser($user);
-                }
-                break;
-        }
-        return $user;
-    }
-
-    private function setDefautUser(Personne $user) {
-        $user->setAdresse($this->adresse);
-        $user->setNom($this->nom);
-        $user->setPrenom($this->prenom);
-        $user->setGroups($this->groups);
-        return $user;
-    }
 
 }

@@ -9,6 +9,8 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class PreferenceConsommateur {
 
+    public static $PREFERENCE_OK = "oui";
+    public static $PREFERENCE_NOK = "non";
     /**
      * @var integer
      */
@@ -21,7 +23,7 @@ class PreferenceConsommateur {
 
     /**
      *
-     * @var Consommateur
+     * @var Personne
      */
     private $consommateur;
 
@@ -85,7 +87,7 @@ class PreferenceConsommateur {
         return $this->consommateur;
     }
 
-    function setConsommateur(Consommateur $consommateur) {
+    function setConsommateur(Personne $consommateur) {
         $this->consommateur = $consommateur;
     }
 
