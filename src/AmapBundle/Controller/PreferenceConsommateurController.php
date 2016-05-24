@@ -6,6 +6,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use AmapBundle\Entity\PreferenceConsommateur;
 use AmapBundle\Form\PreferenceConsommateurType;
+use \Symfony\Component\HttpFoundation\JsonResponse;
 
 /**
  * PreferenceConsommateur controller.
@@ -20,14 +21,19 @@ class PreferenceConsommateurController extends Controller {
     public function indexAction() {
         /* @var $em AbstractManagerRegistry|ObjectManager */
         $em = $this->getDoctrine()->getManager();
-        $courrentUser = $this->get('security.context')->getToken()->getUser()->cast($em);
+        //     echo(     $courrentUser = $this->get('security.context')->getToken()->getUser());
+
+        $courrentUser = $this->get('security.context')->getToken()->getUser();
         $aPreferences = $em->getRepository('AmapBundle:PreferenceConsommateur')->findAll();
         $aProduits = $em->getRepository('AmapBundle:Produit')->findAll();
         if (count($aProduits) != count($aPreferences)) {
             foreach ($aProduits as $oProduit) {
+               
                 $bPreferenceExist = false;
                 foreach ($aPreferences as $oPreference) {
-                    if ($oPreference->getProduit() == $oProduit) {
+                    
+                    if ($oPreference->getProduit()->getId() == $oProduit->getId()) {
+                        
                         $bPreferenceExist = true;
                     }
                 }
@@ -36,10 +42,14 @@ class PreferenceConsommateurController extends Controller {
                     $oNewPreference = new PreferenceConsommateur();
                     $oNewPreference->setProduit($oProduit);
                     $oNewPreference->setConsommateur($courrentUser);
+                    $oNewPreference->setPreference(PreferenceConsommateur::$PREFERENCE_OK);
+                    $em->persist($oNewPreference);
+
                     array_push($aPreferences, $oNewPreference);
                 }
             }
         }
+        $em->flush();
         return $this->render('AmapBundle:PreferenceConsommateur:index.html.twig', array(
                     'entities' => $aPreferences,
         ));
@@ -229,6 +239,34 @@ class PreferenceConsommateurController extends Controller {
                         ->add('submit', 'submit', array('label' => 'Delete'))
                         ->getForm()
         ;
+    }
+
+    public function savePreferenceAction(Request $request) {
+        /* @var $em AbstractManagerRegistry|ObjectManager */
+        $em = $this->getDoctrine()->getManager();
+        $id= $request->get('id');
+        $statut = $request->get('statut');
+        $response = new JsonResponse();
+        if ($id != null && ($statut == PreferenceConsommateur::$PREFERENCE_OK || $statut == PreferenceConsommateur::$PREFERENCE_NOK)) {
+            /* @var $oPreference  PreferenceConsommateur */
+            $oPreference = $em->getRepository('AmapBundle:PreferenceConsommateur')->find($id);
+
+            if ($oPreference) {
+                $em->persist($oPreference);
+                $oPreference->setPreference($statut);
+                $em->flush();
+                  $response->setData(array(
+                'save' => true,
+                'error' => null
+            ));
+            }
+        } else {
+            $response->setData(array(
+                'save' => false,
+                'error' => 'Les paremètres ne sont pas correcte'
+            ));
+        }
+        return $response;
     }
 
 }

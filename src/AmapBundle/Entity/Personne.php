@@ -54,6 +54,19 @@ class Personne extends BaseUser {
      */
     protected $groups;
 
+    private $procuration;
+    
+        /**
+     * @var array
+     */
+    private $disponibilite;
+
+    /**
+     * @var integer
+     */
+    private $indiceConfiance;
+    
+    private $productions;
     /**
      * Get id
      *
@@ -94,33 +107,41 @@ class Personne extends BaseUser {
     function setGroups($groups) {
         $this->groups = array($groups);
     }
-
-    /**
-     * 
-     * @param AbstractManagerRegistry|ObjectManager $em
-     */
-    public function cast($em) {
-        $id = $this->id;
-        switch ($this->groups[0]->getName()) {
-            case "ResponsableAmap":
-                break;
-            case "Consommateur":
-                $user = $em->getRepository('AmapBundle:Consommateur')->getById($id);
-                if (!$user) {
-                    $user = new Consommateur();
-                   // setDefautUser($user);
-                }
-                break;
-        }
-        return $user;
+    
+    static function getTYPE_CONSOMMATEUR() {
+        return self::$TYPE_CONSOMMATEUR;
     }
 
-    private function setDefautUser(Personne $user) {
-        $user->setAdresse($this->adresse);
-        $user->setNom($this->nom);
-        $user->setPrenom($this->prenom);
-        $user->setGroups($this->groups);
-        return $user;
+
+
+    function getProcuration() {
+        return $this->procuration;
     }
+
+    function getProduitsQuantite() {
+        return $this->produitsQuantite;
+    }
+
+
+
+    function getIndiceConfiance() {
+        return $this->indiceConfiance;
+    }
+
+    function setProcuration($procuration) {
+        $this->procuration = $procuration;
+    }
+
+
+    function setDisponibilite($disponibilite) {
+        $this->disponibilite = $disponibilite;
+    }
+
+    function setIndiceConfiance($indiceConfiance) {
+        $this->indiceConfiance = $indiceConfiance;
+    }
+
+
+
 
 }
