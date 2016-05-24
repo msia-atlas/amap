@@ -12,7 +12,24 @@
         <default key="_controller">AmapBundle:Amap:show</default>
     </route>
 
+    <route id="amap_new" path="/new">
+        <default key="_controller">AmapBundle:Amap:new</default>
+    </route>
 
+    <route id="amap_create" path="/create" methods="POST">
+        <default key="_controller">AmapBundle:Amap:create</default>
+    </route>
 
+    <route id="amap_edit" path="/{id}/edit">
+        <default key="_controller">AmapBundle:Amap:edit</default>
+    </route>
+
+    <route id="amap_update" path="/{id}/update" methods="POST|PUT">
+        <default key="_controller">AmapBundle:Amap:update</default>
+    </route>
+
+    <route id="amap_delete" path="/{id}/delete" methods="POST|DELETE">
+        <default key="_controller">AmapBundle:Amap:delete</default>
+    </route>
 
 </routes>

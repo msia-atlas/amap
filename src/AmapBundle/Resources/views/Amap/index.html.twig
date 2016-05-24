@@ -1,10 +1,15 @@
-{% extends '::base.html.twig' %}
+{% extends 'AmapBundle:Default:tableauLayout.html.twig' %}
 
-{% block body -%}
-    <h1>Amap list</h1>
+{% block main -%}
+<div class="row">
+    <div class ="col-md-12 titre">
+        <h1>Gestion des saison</h1>
+    </div>
+</div>
 
-    <table class="records_list">
-        <thead>
+<div class="row">
+    <table class="table" id="tableauGestion">
+       <thead>
             <tr>
                 <th>Adresse</th>
                 <th>Nom</th>
@@ -14,6 +19,10 @@
             </tr>
         </thead>
         <tbody>
+        {% if entities == null %}
+            <tr>
+                <td>Aucun resultat !</td>
+        {% endif %}   
         {% for entity in entities %}
             <tr>
                 <td><a href="{{ path('amap_show', { 'id': entity.id }) }}">{{ entity.adresse }}</a></td>
@@ -25,11 +34,20 @@
                     <li>
                         <a href="{{ path('amap_show', { 'id': entity.id }) }}">show</a>
                     </li>
+                    <li>
+                        <a href="{{ path('amap_edit', { 'id': entity.id }) }}">edit</a>
+                    </li>
                 </ul>
                 </td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
+</div>
+<div class="row">
 
-    {% endblock %}
+    <a href="{{ path('amap_new') }}" class="btn btn-success pull-right" role="button">
+        Ajouter une Amap
+    </a>
+</div>
+{% endblock %}

@@ -1,8 +1,12 @@
-{% extends '::base.html.twig' %}
+{% extends 'AmapBundle:Default:layout.html.twig' %}
 
-{% block body -%}
-    <h1>Responsable</h1>
-
+{% block main -%}
+<div class="row">
+    <div class ="col-md-12 titre">
+        <h1>Responsable</h1>
+    </div>
+</div>
+<div class="row">
     <table class="record_properties">
         <tbody>
             <tr>
@@ -15,6 +19,7 @@
             </tr>
         </tbody>
     </table>
+</div>
 
         <ul class="record_actions">
     <li>
@@ -22,5 +27,11 @@
             Back to the list
         </a>
     </li>
+    <li>
+        <a href="{{ path('responsable_edit', { 'id': entity.id }) }}">
+            Edit
+        </a>
+    </li>
+    <li>{{ form(delete_form) }}</li>
 </ul>
 {% endblock %}

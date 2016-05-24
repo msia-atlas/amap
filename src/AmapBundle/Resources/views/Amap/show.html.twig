@@ -1,6 +1,6 @@
-{% extends '::base.html.twig' %}
+{% extends 'AmapBundle:Default:layout.html.twig' %}
 
-{% block body -%}
+{% block main -%}
     <h1>Amap</h1>
 
     <table class="record_properties">
@@ -27,8 +27,14 @@
         <ul class="record_actions">
     <li>
         <a href="{{ path('amap') }}">
-            Back to the list
+            Retour à la liste des amaps
         </a>
     </li>
+    <li>
+        <a href="{{ path('amap_edit', { 'id': entity.id }) }}">
+            Edit
+        </a>
+    </li>
+    <li>{{ form(delete_form) }}</li>
 </ul>
 {% endblock %}

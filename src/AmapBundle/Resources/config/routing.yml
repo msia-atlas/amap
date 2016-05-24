@@ -1,3 +1,11 @@
+amap_responsable:
+    resource: "@AmapBundle/Resources/config/routing/responsable.xml"
+    prefix:   /responsable
+
+amap_amap:
+    resource: "@AmapBundle/Resources/config/routing/amap.xml"
+    prefix:   /amap
+
 <<<<<<< HEAD
 amap_responsable:
     resource: "@AmapBundle/Resources/config/routing/responsable.xml"
