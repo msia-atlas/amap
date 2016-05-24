@@ -1,0 +1,57 @@
+{% extends 'AmapBundle:Default:layout.html.twig' %}
+
+{% block main -%}
+    <div class="row">
+        <div class ="col-md-12 titre">
+            <h1>Mes productions</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <table class="table ">
+                <thead>
+                    <tr>
+                        <th>Produit</th>
+                        <th>Statut</th>
+                        <th>Quantite à livrée</th>
+                        <th>Date de lancement</th>
+                        <th>Date de livraison</th>            
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for entity in entities %}
+                        <tr>
+                            <td><a href="{{ path('production_show', { 'id': entity.id }) }}">{{ entity.produit }}</a></td>
+                            <td>{{ entity.statut }}</td>
+                            <td>{{ entity.quantiteLivree }}</td>
+                            <td>{% if entity.dateLancement %}{{ entity.dateLancement|date('Y-m-d H:i:s') }}{% endif %}</td>
+                            <td>{% if entity.dateLivraison %}{{ entity.dateLivraison|date('Y-m-d H:i:s') }}{% endif %}</td>
+
+                            <td>
+                                <ul>
+                                    <li>
+                                        <a href="{{ path('production_show', { 'id': entity.id }) }}">show</a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ path('production_edit', { 'id': entity.id }) }}">edit</a>
+                                    </li>
+                                </ul>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+    <div class="row">
+
+        <a href="{{ path('production_new') }}" class="btn btn-success pull-right" role="button">
+            Ajouter une production
+        </a>
+    </div>
+
+
+
+{% endblock %}

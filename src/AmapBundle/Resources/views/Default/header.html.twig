@@ -21,6 +21,10 @@
                 <a href="index" class="col-md-2 item-menu">Mes contrats</a>
                 <a href="{{path("preferenceConsommateur")}}" class="col-md-2 item-menu">Gestion de mes préférences</a>
             {%endif%}
+            {% if is_granted("ROLE_DROIT_ACCES_PRODUCTEUR") %}
+                <a href="index" class="col-md-2 item-menu">Mes contrats</a>
+                <a href="{{path("production")}}" class="col-md-2 item-menu">Gestion de mes productions</a>
+            {%endif%}
 
         </div>
         <div class="login col-md-2 pull-right">

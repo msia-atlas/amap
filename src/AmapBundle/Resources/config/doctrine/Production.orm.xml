@@ -4,7 +4,9 @@
     <id name="id" type="integer" column="id">
       <generator strategy="AUTO"/>
     </id>
-    <field name="produit" type="string" column="produit" length="255"/>
+      <many-to-one field="produit" target-entity="Produit">
+            <join-column name="idProduit" referenced-column-name="id" />
+        </many-to-one>
     <field name="quantiteLivree" type="float" column="quantiteLivree"/>
     <field name="dateLivraison" type="date" column="dateLivraison"/>
     <field name="dateLancement" type="date" column="dateLancement"/>

@@ -165,4 +165,13 @@ class Production
     {
         return $this->statut;
     }
+    function getProducteur() {
+        return $this->producteur;
+    }
+
+    function setProducteur($producteur) {
+        $this->producteur = $producteur;
+    }
+
+
 }

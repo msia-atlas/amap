@@ -170,4 +170,8 @@ class Produit
     {
         return $this->prixUnitaire;
     }
+    public function __toString() {
+        return $this->libelle;
+    }
+
 }

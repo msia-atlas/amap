@@ -3,14 +3,15 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/xampp/htdocs/amap/src/AmapBundle/Entity/PreferenceConsommateur.php</file>
-            <file>file:/C:/xampp/htdocs/amap/src/AmapBundle/Resources/views/Produit/index.html.twig</file>
+            <file>file:/C:/xampp/htdocs/amap/src/AmapBundle/Resources/views/Production/new.html.twig</file>
+            <file>file:/C:/xampp/htdocs/amap/src/AmapBundle/Entity/Produit.php</file>
             <file>file:/C:/xampp/htdocs/amap/src/AmapBundle/Resources/views/Default/header.html.twig</file>
-            <file>file:/C:/xampp/htdocs/amap/src/AmapBundle/Controller/PreferenceConsommateurController.php</file>
-            <file>file:/C:/xampp/htdocs/amap/src/AmapBundle/Repository/ConsommateurRepository.php</file>
-            <file>file:/C:/xampp/htdocs/amap/src/AmapBundle/Entity/Consommateur.php</file>
-            <file>file:/C:/xampp/htdocs/amap/src/AmapBundle/Entity/Personne.php</file>
-            <file>file:/C:/xampp/htdocs/amap/src/AmapBundle/Resources/views/PreferenceConsommateur/index.html.twig</file>
+            <file>file:/C:/xampp/htdocs/amap/app/config/config.yml</file>
+            <file>file:/C:/xampp/htdocs/amap/src/AmapBundle/Resources/views/Production/index.html.twig</file>
+            <file>file:/C:/xampp/htdocs/amap/src/AmapBundle/Form/PreferenceConsommateurType.php</file>
+            <file>file:/C:/xampp/htdocs/amap/src/AmapBundle/Resources/config/doctrine/Production.orm.xml</file>
+            <file>file:/C:/xampp/htdocs/amap/app/config/security.yml</file>
+            <file>file:/C:/xampp/htdocs/amap/src/AmapBundle/Resources/config/doctrine/PreferenceConsommateur.orm.xml</file>
         </group>
     </open-files>
 </project-private>

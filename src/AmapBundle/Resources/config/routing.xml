@@ -16,6 +16,8 @@
     <import resource="@AmapBundle/Resources/config/routing/contratProducteur.xml" prefix="contratProducteur"/>
     <import resource="@AmapBundle/Resources/config/routing/preferenceConsommateur.xml" prefix="/preferenceConsommateur"/>
     <import resource="@FOSJsRoutingBundle/Resources/config/routing/routing.xml" />
+    <import resource="@AmapBundle/Resources/config/routing/production.xml" prefix="/production"/>
+
 
 </routes>
 

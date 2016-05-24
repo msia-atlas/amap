@@ -1,4 +1,0 @@
-amap_preferenceConsommateur:
-    resource: "@AmapBundle/Resources/config/routing/preferenceconsommateur.xml"
-    prefix:   /preferenceConsommateur
-

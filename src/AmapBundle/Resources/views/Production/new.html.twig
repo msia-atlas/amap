@@ -1,0 +1,19 @@
+{% extends 'AmapBundle:Default:layout.html.twig' %}
+
+{% block main -%}
+      <div class="row">
+        <div class ="col-md-12 titre">
+            <h1>Ajouter une production</h1>
+        </div>
+    </div>
+
+    {{ form(form) }}
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('production') }}">
+            Retourner à la liste des productions
+        </a>
+    </li>
+</ul>
+{% endblock %}
