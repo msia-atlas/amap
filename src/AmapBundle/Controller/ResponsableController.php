@@ -5,7 +5,7 @@ namespace AmapBundle\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
-use AmapBundle\Entity\Responsable;
+use AmapBundle\Entity\Personne;
 use AmapBundle\Form\ResponsableType;
 
 /**
@@ -23,8 +23,8 @@ class ResponsableController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entities = $em->getRepository('AmapBundle:Responsable')->findAll();
-
+        $entities = $em->getRepository('AmapBundle:Personne')->getAllResponsable();
+        
         return $this->render('AmapBundle:Responsable:index.html.twig', array(
             'entities' => $entities,
         ));
@@ -35,7 +35,7 @@ class ResponsableController extends Controller
      */
     public function createAction(Request $request)
     {
-        $entity = new Responsable();
+        $entity = new Personne();
         $form = $this->createCreateForm($entity);
         $form->handleRequest($request);
 
@@ -56,18 +56,18 @@ class ResponsableController extends Controller
     /**
      * Creates a form to create a Responsable entity.
      *
-     * @param Responsable $entity The entity
+     * @param Personne $entity The entity
      *
      * @return \Symfony\Component\Form\Form The form
      */
-    private function createCreateForm(Responsable $entity)
+    private function createCreateForm(Personne $entity)
     {
         $form = $this->createForm(new ResponsableType(), $entity, array(
             'action' => $this->generateUrl('responsable_create'),
             'method' => 'POST',
         ));
 
-        $form->add('submit', 'submit', array('label' => 'Create'));
+        $form->add('submit', 'submit', array('label' => 'Ajouter le responsable'));
 
         return $form;
     }
@@ -78,7 +78,7 @@ class ResponsableController extends Controller
      */
     public function newAction()
     {
-        $entity = new Responsable();
+        $entity = new Personne();
         $form   = $this->createCreateForm($entity);
 
         return $this->render('AmapBundle:Responsable:new.html.twig', array(
@@ -95,7 +95,7 @@ class ResponsableController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entity = $em->getRepository('AmapBundle:Responsable')->find($id);
+        $entity = $em->getRepository('AmapBundle:Personne')->find($id);
 
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find Responsable entity.');
@@ -117,7 +117,7 @@ class ResponsableController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entity = $em->getRepository('AmapBundle:Responsable')->find($id);
+        $entity = $em->getRepository('AmapBundle:Personne')->find($id);
 
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find Responsable entity.');
@@ -136,11 +136,11 @@ class ResponsableController extends Controller
     /**
     * Creates a form to edit a Responsable entity.
     *
-    * @param Responsable $entity The entity
+    * @param Personne $entity The entity
     *
     * @return \Symfony\Component\Form\Form The form
     */
-    private function createEditForm(Responsable $entity)
+    private function createEditForm(Personne $entity)
     {
         $form = $this->createForm(new ResponsableType(), $entity, array(
             'action' => $this->generateUrl('responsable_update', array('id' => $entity->getId())),
@@ -159,7 +159,7 @@ class ResponsableController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entity = $em->getRepository('AmapBundle:Responsable')->find($id);
+        $entity = $em->getRepository('AmapBundle:Personne')->find($id);
 
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find Responsable entity.');
@@ -192,7 +192,7 @@ class ResponsableController extends Controller
 
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();
-            $entity = $em->getRepository('AmapBundle:Responsable')->find($id);
+            $entity = $em->getRepository('AmapBundle:Personne')->find($id);
 
             if (!$entity) {
                 throw $this->createNotFoundException('Unable to find Responsable entity.');

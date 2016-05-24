@@ -67,6 +67,8 @@ class Personne extends BaseUser {
     private $indiceConfiance;
     
     private $productions;
+    
+    private $groupName;
     /**
      * Get id
      *
@@ -106,8 +108,9 @@ class Personne extends BaseUser {
 
     function setGroups($groups) {
         $this->groups = array($groups);
+        $this->groupName = $groups->getName();
     }
-    
+
     static function getTYPE_CONSOMMATEUR() {
         return self::$TYPE_CONSOMMATEUR;
     }

@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
-    <entity name="AmapBundle\Entity\Personne">
+    <entity name="AmapBundle\Entity\Personne" repository-class="AmapBundle\Repository\PersonneRepository">
         <id name="id" type="integer" column="id">
             <generator strategy="AUTO"/>
         </id>
         <field name="adresse" type="string" column="adresse" length="255"/>
         <field name="nom" type="string" column="nom" length="255"/>
         <field name="prenom" type="string" column="prenom" length="255"/>
+        <field name="groupName" type="string" column="groupName" length="255" nullable="true"/>
         <many-to-many field="groups" target-entity="FosGroup">
             <join-table name="personneGroupe">
                 <join-columns>

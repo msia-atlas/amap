@@ -8,7 +8,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use AmapBundle\Repository\FosGroupRepository;
 
-class RegistrationType extends AbstractType {
+class ResponsableType extends AbstractType {
 
     public function buildForm(FormBuilderInterface $builder, array $options) {
         $builder->add('nom');
