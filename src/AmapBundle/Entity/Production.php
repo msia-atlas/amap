@@ -39,6 +39,7 @@ class Production
      */
     private $statut;
 
+    private $producteur;
 
     /**
      * Get id

@@ -54,7 +54,19 @@ class Personne extends BaseUser {
      */
     protected $groups;
 
-    private $procuration = null;
+    private $procuration;
+    
+        /**
+     * @var array
+     */
+    private $disponibilite;
+
+    /**
+     * @var integer
+     */
+    private $indiceConfiance;
+    
+    private $productions;
     /**
      * Get id
      *
@@ -96,7 +108,40 @@ class Personne extends BaseUser {
         $this->groups = array($groups);
     }
     
-   
+    static function getTYPE_CONSOMMATEUR() {
+        return self::$TYPE_CONSOMMATEUR;
+    }
+
+
+
+    function getProcuration() {
+        return $this->procuration;
+    }
+
+    function getProduitsQuantite() {
+        return $this->produitsQuantite;
+    }
+
+
+
+    function getIndiceConfiance() {
+        return $this->indiceConfiance;
+    }
+
+    function setProcuration($procuration) {
+        $this->procuration = $procuration;
+    }
+
+
+    function setDisponibilite($disponibilite) {
+        $this->disponibilite = $disponibilite;
+    }
+
+    function setIndiceConfiance($indiceConfiance) {
+        $this->indiceConfiance = $indiceConfiance;
+    }
+
+
 
 
 }
