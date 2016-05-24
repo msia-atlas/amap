@@ -31,5 +31,8 @@
     <route id="preferenceConsommateur_delete" path="/{id}/delete" methods="POST|DELETE">
         <default key="_controller">AmapBundle:PreferenceConsommateur:delete</default>
     </route>
+     <route id="preferenceConsommateur_save" path="/save" methods="POST">
+        <default key="_controller">AmapBundle:PreferenceConsommateur:savePreference</default>
+    </route>
 
 </routes>

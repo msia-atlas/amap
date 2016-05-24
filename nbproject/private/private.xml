@@ -3,12 +3,23 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
             <file>file:/C:/wamp/www/amap/src/AmapBundle/Resources/views/Amap/new.html.twig</file>
             <file>file:/C:/wamp/www/amap/src/AmapBundle/Resources/views/Default/header.html.twig</file>
             <file>file:/C:/wamp/www/amap/src/AmapBundle/Resources/views/Amap/index.html.twig</file>
             <file>file:/C:/wamp/www/amap/src/AmapBundle/Resources/views/Saison/new.html.twig</file>
             <file>file:/C:/wamp/www/amap/src/AmapBundle/Resources/config/routing.xml</file>
             <file>file:/C:/wamp/www/amap/src/AmapBundle/Resources/views/Saison/index.html.twig</file>
+=======
+            <file>file:/C:/xampp/htdocs/amap/src/AmapBundle/Entity/PreferenceConsommateur.php</file>
+            <file>file:/C:/xampp/htdocs/amap/src/AmapBundle/Resources/views/Produit/index.html.twig</file>
+            <file>file:/C:/xampp/htdocs/amap/src/AmapBundle/Resources/views/Default/header.html.twig</file>
+            <file>file:/C:/xampp/htdocs/amap/src/AmapBundle/Controller/PreferenceConsommateurController.php</file>
+            <file>file:/C:/xampp/htdocs/amap/src/AmapBundle/Repository/ConsommateurRepository.php</file>
+            <file>file:/C:/xampp/htdocs/amap/src/AmapBundle/Entity/Consommateur.php</file>
+            <file>file:/C:/xampp/htdocs/amap/src/AmapBundle/Entity/Personne.php</file>
+            <file>file:/C:/xampp/htdocs/amap/src/AmapBundle/Resources/views/PreferenceConsommateur/index.html.twig</file>
+>>>>>>> 30af354b16812cb6c1296b3bc19a2e3170f74db9
         </group>
     </open-files>
 </project-private>

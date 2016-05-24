@@ -9,5 +9,8 @@
     <field name="dateLivraison" type="date" column="dateLivraison"/>
     <field name="dateLancement" type="date" column="dateLancement"/>
     <field name="statut" type="string" column="statut" length="255"/>
+    <many-to-one field="producteur" target-entity="Personne" inversed-by="produits">
+            <join-column name="idProducteur" referenced-column-name="id" />
+     </many-to-one>
   </entity>
 </doctrine-mapping>
