@@ -24,18 +24,23 @@ class PreferenceConsommateurController extends Controller {
         //     echo(     $courrentUser = $this->get('security.context')->getToken()->getUser());
 
         $courrentUser = $this->get('security.context')->getToken()->getUser();
-        $aPreferences = $em->getRepository('AmapBundle:PreferenceConsommateur')->findAll();
+        $aPreferences = $em->getRepository('AmapBundle:PreferenceConsommateur')->findBy(array('consommateur' => $courrentUser));
         $aProduits = $em->getRepository('AmapBundle:Produit')->findAll();
+       
         if (count($aProduits) != count($aPreferences)) {
             foreach ($aProduits as $oProduit) {
-               
+
                 $bPreferenceExist = false;
-                foreach ($aPreferences as $oPreference) {
-                    
-                    if ($oPreference->getProduit()->getId() == $oProduit->getId()) {
-                        
-                        $bPreferenceExist = true;
+                if ($aPreferences != null) {
+                    foreach ($aPreferences as $oPreference) {
+
+                        if ($oPreference->getProduit()->getId() == $oProduit->getId()) {
+
+                            $bPreferenceExist = true;
+                        }
                     }
+                }  else {
+                    $aPreferences=array();
                 }
 
                 if ($bPreferenceExist == false) {
@@ -49,6 +54,7 @@ class PreferenceConsommateurController extends Controller {
                 }
             }
         }
+        
         $em->flush();
         return $this->render('AmapBundle:PreferenceConsommateur:index.html.twig', array(
                     'entities' => $aPreferences,
@@ -244,7 +250,7 @@ class PreferenceConsommateurController extends Controller {
     public function savePreferenceAction(Request $request) {
         /* @var $em AbstractManagerRegistry|ObjectManager */
         $em = $this->getDoctrine()->getManager();
-        $id= $request->get('id');
+        $id = $request->get('id');
         $statut = $request->get('statut');
         $response = new JsonResponse();
         if ($id != null && ($statut == PreferenceConsommateur::$PREFERENCE_OK || $statut == PreferenceConsommateur::$PREFERENCE_NOK)) {
@@ -255,10 +261,10 @@ class PreferenceConsommateurController extends Controller {
                 $em->persist($oPreference);
                 $oPreference->setPreference($statut);
                 $em->flush();
-                  $response->setData(array(
-                'save' => true,
-                'error' => null
-            ));
+                $response->setData(array(
+                    'save' => true,
+                    'error' => null
+                ));
             }
         } else {
             $response->setData(array(
