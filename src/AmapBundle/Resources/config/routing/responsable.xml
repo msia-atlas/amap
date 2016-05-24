@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<routes xmlns="http://symfony.com/schema/routing"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://symfony.com/schema/routing http://symfony.com/schema/routing/routing-1.0.xsd">
+
+    <route id="responsable" path="/">
+        <default key="_controller">AmapBundle:Responsable:index</default>
+    </route>
+
+    <route id="responsable_show" path="/{id}/show">
+        <default key="_controller">AmapBundle:Responsable:show</default>
+    </route>
+
+    <route id="responsable_new" path="/new">
+        <default key="_controller">AmapBundle:Responsable:new</default>
+    </route>
+
+    <route id="responsable_create" path="/create" methods="POST">
+        <default key="_controller">AmapBundle:Responsable:create</default>
+    </route>
+
+    <route id="responsable_edit" path="/{id}/edit">
+        <default key="_controller">AmapBundle:Responsable:edit</default>
+    </route>
+
+    <route id="responsable_update" path="/{id}/update" methods="POST|PUT">
+        <default key="_controller">AmapBundle:Responsable:update</default>
+    </route>
+
+    <route id="responsable_delete" path="/{id}/delete" methods="POST|DELETE">
+        <default key="_controller">AmapBundle:Responsable:delete</default>
+    </route>
+
+</routes>

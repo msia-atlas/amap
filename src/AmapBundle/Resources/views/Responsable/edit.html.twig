@@ -1,0 +1,16 @@
+{% extends 'AmapBundle:Default:layout.html.twig' %}
+
+{% block body -%}
+    <h1>Edition de responsable</h1>
+
+    {{ form(edit_form) }}
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('responsable') }}">
+            Retour à la liste des responsables
+        </a>
+    </li>
+    <li>{{ form(delete_form) }}</li>
+</ul>
+{% endblock %}

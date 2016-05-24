@@ -25,7 +25,7 @@
 # Assets and user uploads
 /web/bundles/
 /web/uploads/
-/web/
+
 # Assets managed by Bower
 /web/assets/vendor/
 
@@ -38,11 +38,7 @@
 
 # Composer PHAR
 /composer.phar
-<<<<<<< HEAD
-
-src/AppBundle/Tests/*
-=======
+/composer.lock
 css
 js
 fonts
->>>>>>> 3c0155268c47f5d7c634c6eb1b7a646c6ac757eb

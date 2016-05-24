@@ -1,0 +1,43 @@
+{% extends 'AmapBundle:Default:layout.html.twig' %}
+{% block main -%}
+ <div class="row">
+    <div class ="col-md-12 titre">
+        <h1>Gestion des responsable</h1>
+    </div>
+</div>
+<div class="row">
+    <table class="records_list">
+        <thead>
+            <tr>
+                <th>Telephone</th>
+                <th>Id</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td><a href="{{ path('responsable_show', { 'id': entity.id }) }}">{{ entity.telephone }}</a></td>
+                <td>{{ entity.id }}</td>
+                <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('responsable_show', { 'id': entity.id }) }}">show</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('responsable_edit', { 'id': entity.id }) }}">edit</a>
+                    </li>
+                </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+<div class="row">
+
+    <a href="{{ path('responsable_new') }}" class="btn btn-success pull-right" role="button">
+        Ajouter un responsable
+    </a>
+</div>
+    {% endblock %}

@@ -17,8 +17,8 @@
     <import resource="@AmapBundle/Resources/config/routing/preferenceConsommateur.xml" prefix="/preferenceConsommateur"/>
     <import resource="@FOSJsRoutingBundle/Resources/config/routing/routing.xml" />
     <import resource="@AmapBundle/Resources/config/routing/production.xml" prefix="/production"/>
-
-
+    <import resource="@AmapBundle/Resources/config/routing/responsable.xml" prefix="responsable"/>
+    <import resource="@AmapBundle/Resources/config/routing/amap.xml" prefix="amap"/> 
 </routes>
 
 
