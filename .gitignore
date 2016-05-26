@@ -39,6 +39,4 @@
 # Composer PHAR
 /composer.phar
 /composer.lock
-css
-js
-fonts
+

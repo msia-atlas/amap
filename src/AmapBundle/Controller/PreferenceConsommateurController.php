@@ -24,41 +24,48 @@ class PreferenceConsommateurController extends Controller {
         //     echo(     $courrentUser = $this->get('security.context')->getToken()->getUser());
 
         $courrentUser = $this->get('security.context')->getToken()->getUser();
-        $aPreferences = $em->getRepository('AmapBundle:PreferenceConsommateur')->findBy(array('consommateur' => $courrentUser));
-        $aProduits = $em->getRepository('AmapBundle:Produit')->findAll();
-       
-        if (count($aProduits) != count($aPreferences)) {
-            foreach ($aProduits as $oProduit) {
+       // $courrentUser = $em->getRepository('AmapBundle:Personne')->findOneByUsername($courrentUserName);
+    var_dump($courrentUser->getGroups()[0]->getId());
+        if ($courrentUser != null && $courrentUser->getGroups()[0]->getId() == \AmapBundle\Entity\Personne::$TYPE_CONSOMMATEUR) {
+            $aPreferences = $em->getRepository('AmapBundle:PreferenceConsommateur')->findBy(array('consommateur' => $courrentUser));
+            $aProduits = $em->getRepository('AmapBundle:Produit')->findAll();
 
-                $bPreferenceExist = false;
-                if ($aPreferences != null) {
-                    foreach ($aPreferences as $oPreference) {
+            if (count($aProduits) != count($aPreferences)) {
+                foreach ($aProduits as $oProduit) {
 
-                        if ($oPreference->getProduit()->getId() == $oProduit->getId()) {
+                    $bPreferenceExist = false;
+                    if ($aPreferences != null) {
+                        foreach ($aPreferences as $oPreference) {
 
-                            $bPreferenceExist = true;
+                            if ($oPreference->getProduit()->getId() == $oProduit->getId()) {
+
+                                $bPreferenceExist = true;
+                            }
                         }
+                    } else {
+                        $aPreferences = array();
                     }
-                }  else {
-                    $aPreferences=array();
-                }
 
-                if ($bPreferenceExist == false) {
-                    $oNewPreference = new PreferenceConsommateur();
-                    $oNewPreference->setProduit($oProduit);
-                    $oNewPreference->setConsommateur($courrentUser);
-                    $oNewPreference->setPreference(PreferenceConsommateur::$PREFERENCE_OK);
-                    $em->persist($oNewPreference);
+                    if ($bPreferenceExist == false) {
+                        $oNewPreference = new PreferenceConsommateur();
+                        $oNewPreference->setProduit($oProduit);
+                        $oNewPreference->setConsommateur($courrentUser);
+                        $oNewPreference->setPreference(PreferenceConsommateur::$PREFERENCE_OK);
+                        $em->persist($oNewPreference);
 
-                    array_push($aPreferences, $oNewPreference);
+                        array_push($aPreferences, $oNewPreference);
+                    }
                 }
             }
+
+            $em->flush();
+            return $this->render('AmapBundle:PreferenceConsommateur:index.html.twig', array(
+                        'entities' => $aPreferences,
+            ));
+        }else{
+             return $this->render('AmapBundle:Default:notAllowed.html.twig', array(
+            ));
         }
-        
-        $em->flush();
-        return $this->render('AmapBundle:PreferenceConsommateur:index.html.twig', array(
-                    'entities' => $aPreferences,
-        ));
     }
 
     /**
