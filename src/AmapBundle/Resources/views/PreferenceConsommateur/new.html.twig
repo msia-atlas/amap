@@ -1,14 +1,14 @@
-{% extends '::base.html.twig' %}
+{% extends 'AmapBundle:Default:layout.html.twig' %}
 
 {% block body -%}
-    <h1>PreferenceConsommateur creation</h1>
+    <h1>Preference consommateur creation</h1>
 
     {{ form(form) }}
 
         <ul class="record_actions">
     <li>
         <a href="{{ path('preferenceConsommateur') }}">
-            Back to the list
+           Rretoru à la liste des preferences consommateur
         </a>
     </li>
 </ul>

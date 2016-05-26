@@ -1,6 +1,6 @@
-{% extends '::base.html.twig' %}
+{% extends 'AmapBundle:Default:layout.html.twig' %}
 
-{% block body -%}
+{% block main -%}
     <h1>ContratConsommateur edit</h1>
 
     {{ form(edit_form) }}
@@ -8,7 +8,7 @@
         <ul class="record_actions">
     <li>
         <a href="{{ path('contratconsommateur') }}">
-            Back to the list
+           Retour aux contrats consomateurs
         </a>
     </li>
     <li>{{ form(delete_form) }}</li>
