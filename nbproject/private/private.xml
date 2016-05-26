@@ -3,15 +3,9 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/wamp/www/amap/src/AmapBundle/Resources/views/ContratConsommateur/index.html.twig</file>
             <file>file:/C:/wamp/www/amap/src/AmapBundle/Resources/views/PreferenceConsommateur/new.html.twig</file>
-            <file>file:/C:/wamp/www/amap/src/AmapBundle/Resources/views/ContratConsommateur/new.html.twig</file>
-            <file>file:/C:/wamp/www/amap/src/AmapBundle/Resources/views/ContratProducteur/edit.html.twig</file>
             <file>file:/C:/wamp/www/amap/src/AmapBundle/Resources/views/PreferenceConsommateur/edit.html.twig</file>
-            <file>file:/C:/wamp/www/amap/src/AmapBundle/Resources/views/PreferenceConsommateur/index.html.twig</file>
-            <file>file:/C:/wamp/www/amap/src/AmapBundle/Resources/views/Amap/edit.html.twig</file>
             <file>file:/C:/wamp/www/amap/src/AmapBundle/Resources/views/PreferenceConsommateur/show.html.twig</file>
-            <file>file:/C:/wamp/www/amap/src/AmapBundle/Resources/views/ContratConsommateur/edit.html.twig</file>
         </group>
     </open-files>
 </project-private>
