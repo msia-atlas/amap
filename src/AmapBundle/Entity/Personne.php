@@ -14,10 +14,10 @@ use AmapBundle\Repository\ConsommateurRepository;
  */
 class Personne extends BaseUser {
 
-    public static $TYPE_CONSOMMATEUR = 1;
-    public static $TYPE_PRODUCTEUR = 2;
+    public static $TYPE_CONSOMMATEUR = 2;
+    public static $TYPE_PRODUCTEUR = 4;
     public static $TYPE_VOLONTAIRE = 3;
-    public static $TYPE_RESPONSABLE = 4;
+    public static $TYPE_RESPONSABLE = 1;
     public static $TYPE_ADMINISTRATEUR = 5;
 
     function __construct() {
@@ -143,6 +143,17 @@ class Personne extends BaseUser {
     function setIndiceConfiance($indiceConfiance) {
         $this->indiceConfiance = $indiceConfiance;
     }
+    function getGroupName() {
+        if($this->groupName ==null){
+           $this->groupName = $this->groups[0]->getName(); 
+        }
+        return $this->groupName;
+    }
+
+    function setGroupName($groupName) {
+        $this->groupName = $groupName;
+    }
+
 
 
 

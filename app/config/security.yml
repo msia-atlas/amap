@@ -67,5 +67,10 @@ security:
         - { path: ^/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/register, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/admin/, role: ROLE_ADMIN }    
+        - { path: ^/admin/, role: ROLE_ADMIN }  
+        - { path: ^/consomateur/, role: ROLE_CONSOMMATEUR }  
+        - { path: ^/producteur/, role: ROLE_PRODUCTEUR }  
+        - { path: ^/responsable/, role: ROLE_RESPONSABLE }  
+        - { path: ^/volontaire/, role: ROLE_VOLONTAIRE }  
+        - { path: ^/administrateur/, role: ROLE_ADMIN } 
         #- { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY, requires_channel: https }

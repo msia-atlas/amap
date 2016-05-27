@@ -3,9 +3,16 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
             <file>file:/C:/wamp/www/amap/src/AmapBundle/Resources/views/PreferenceConsommateur/new.html.twig</file>
             <file>file:/C:/wamp/www/amap/src/AmapBundle/Resources/views/PreferenceConsommateur/edit.html.twig</file>
             <file>file:/C:/wamp/www/amap/src/AmapBundle/Resources/views/PreferenceConsommateur/show.html.twig</file>
+=======
+            <file>file:/C:/xampp/htdocs/amap/src/AmapBundle/Resources/config/routing.xml</file>
+            <file>file:/C:/xampp/htdocs/amap/src/AmapBundle/Util/UserUtil.php</file>
+            <file>file:/C:/xampp/htdocs/amap/src/AmapBundle/Controller/PreferenceConsommateurController.php</file>
+            <file>file:/C:/xampp/htdocs/amap/app/config/security.yml</file>
+>>>>>>> 1565e3eabcbb23e87b08cbd925b8c2a711c80acb
         </group>
     </open-files>
 </project-private>
