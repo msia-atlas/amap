@@ -15,7 +15,7 @@
     <import resource="@AmapBundle/Resources/config/routing/contratConsommateur.xml" prefix="/responsable/contratConsommateur"/>
     <import resource="@AmapBundle/Resources/config/routing/contratProducteur.xml" prefix="/responsable/contratProducteur"/>
     <import resource="@AmapBundle/Resources/config/routing/preferenceConsommateur.xml" prefix="/consommateur/preferenceConsommateur"/>
-    <import resource="@AmapBundle/Resources/config/routing/production.xml" prefix="/administrateur/production"/>
+    <import resource="@AmapBundle/Resources/config/routing/production.xml" prefix="/producteur/production"/>
     <import resource="@AmapBundle/Resources/config/routing/responsable.xml" prefix="administrateur/responsable"/>
     <import resource="@AmapBundle/Resources/config/routing/amap.xml" prefix="/administrateur/amap"/> 
 </routes>
