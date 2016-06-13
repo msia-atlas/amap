@@ -14,7 +14,7 @@
             {%endif%}
             {% if is_granted("ROLE_ADMIN") %}
                 <a href="{{path("amap")}}" class="col-md-2 item-menu">Gestion des Amaps</a>
-                <a href="index" class="col-md-2 item-menu">Gestion des Produits</a>
+                <a href="{{path("produit")}}" class="col-md-2 item-menu">Gestion des Produits</a>
                 <a href="{{path("responsable")}}" class="col-md-2 item-menu">Gestion des responsables</a>
                 <a href="{{path("saison")}}" class="col-md-2 item-menu">Gestion des Saison</a>
             {%endif%}

@@ -29,14 +29,11 @@
                             <td>{% if entity.dateLivraison %}{{ entity.dateLivraison|date('Y-m-d H:i:s') }}{% endif %}</td>
 
                             <td>
-                                <ul>
-                                    <li>
-                                        <a href="{{ path('production_show', { 'id': entity.id }) }}">show</a>
-                                    </li>
-                                    <li>
-                                        <a href="{{ path('production_edit', { 'id': entity.id }) }}">edit</a>
-                                    </li>
-                                </ul>
+
+                                <a href="{{ path('production_edit', { 'id': entity.id }) }}" class="btn btn-default btn-xs" role="button">Modifier</a>
+
+                                <a href="{{ path('production_delete', { 'id': entity.id }) }}" class="btn btn-danger btn-xs" role="button">Supprimer</a>
+
                             </td>
                         </tr>
                     {% endfor %}
