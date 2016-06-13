@@ -15,12 +15,14 @@ class ProductionType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('producteur')
+            //->add('producteur')
             ->add('produit')
             ->add('quantiteLivree')
             ->add('dateLivraison')
             ->add('dateLancement')
-            ->add('statut')
+            ->add('statut','choice',[
+                'choices'=>['Production possible','Prochaine Production']
+            ])
         ;
     }
     

@@ -1,4 +1,5 @@
 <?php
+namespace AmapBundle\Util;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -12,10 +13,10 @@
  * @author Thais Martet
  */
 class UserUtil {
-   public static function checkUserConnected($controleur,$typeNeeded){
-         $user= $courrentUser = $controleur->get('security.context')->getToken()->getUser();
+   public static function getCourrentUser($controleur,$typeNeeded){
+         $user= $controleur->get('security.context')->getToken()->getUser();
 
-       if ($user != null && $user->getGroups()[0]->getId() == \AmapBundle\Entity\Personne::$TYPE_CONSOMMATEUR) {
+       if ($user != null && $user->getGroups()[0]->getId() ==$typeNeeded) {
            return $user;
        }else{
            return false;

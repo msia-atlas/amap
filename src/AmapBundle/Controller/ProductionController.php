@@ -7,7 +7,8 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 use AmapBundle\Entity\Production;
 use AmapBundle\Form\ProductionType;
-
+use AmapBundle\Entity\Personne;
+use AmapBundle\Util\UserUtil;
 /**
  * Production controller.
  *
@@ -22,8 +23,8 @@ class ProductionController extends Controller
     public function indexAction()
     {
         $em = $this->getDoctrine()->getManager();
-
-        $entities = $em->getRepository('AmapBundle:Production')->findAll();
+        $user = UserUtil::getCourrentUser($this, Personne::$TYPE_PRODUCTEUR);
+        $entities = $em->getRepository('AmapBundle:Production')->findByProducteur($user);
 
         return $this->render('AmapBundle:Production:index.html.twig', array(
             'entities' => $entities,
@@ -36,6 +37,8 @@ class ProductionController extends Controller
     public function createAction(Request $request)
     {
         $entity = new Production();
+        $user = UserUtil::getCourrentUser($this, Personne::$TYPE_PRODUCTEUR);
+        $entity->setProducteur($user);
         $form = $this->createCreateForm($entity);
         $form->handleRequest($request);
 
@@ -66,8 +69,8 @@ class ProductionController extends Controller
             'action' => $this->generateUrl('production_create'),
             'method' => 'POST',
         ));
-
-        $form->add('submit', 'submit', array('label' => 'Create'));
+        
+        $form->add('submit', 'submit', array('label' => 'Ajouter'));
 
         return $form;
     }
@@ -78,9 +81,10 @@ class ProductionController extends Controller
      */
     public function newAction()
     {
+        
         $entity = new Production();
         $form   = $this->createCreateForm($entity);
-
+        
         return $this->render('AmapBundle:Production:new.html.twig', array(
             'entity' => $entity,
             'form'   => $form->createView(),
@@ -147,7 +151,7 @@ class ProductionController extends Controller
             'method' => 'PUT',
         ));
 
-        $form->add('submit', 'submit', array('label' => 'Update'));
+        $form->add('submit', 'submit', array('label' => 'Enregeister'));
 
         return $form;
     }
@@ -217,8 +221,10 @@ class ProductionController extends Controller
         return $this->createFormBuilder()
             ->setAction($this->generateUrl('production_delete', array('id' => $id)))
             ->setMethod('DELETE')
-            ->add('submit', 'submit', array('label' => 'Delete'))
+            ->add('submit', 'submit', array('label' => 'Supprimer'))
             ->getForm()
         ;
     }
+    
+  
 }

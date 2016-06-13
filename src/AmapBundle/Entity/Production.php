@@ -7,8 +7,8 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Production
  */
-class Production
-{
+class Production {
+
     /**
      * @var integer
      */
@@ -38,7 +38,9 @@ class Production
      * @var string
      */
     private $statut;
-
+    /*
+     * Personne
+     */
     private $producteur;
 
     /**
@@ -46,8 +48,7 @@ class Production
      *
      * @return integer 
      */
-    public function getId()
-    {
+    public function getId() {
         return $this->id;
     }
 
@@ -57,8 +58,7 @@ class Production
      * @param string $produit
      * @return Production
      */
-    public function setProduit($produit)
-    {
+    public function setProduit($produit) {
         $this->produit = $produit;
 
         return $this;
@@ -69,8 +69,7 @@ class Production
      *
      * @return string 
      */
-    public function getProduit()
-    {
+    public function getProduit() {
         return $this->produit;
     }
 
@@ -80,8 +79,7 @@ class Production
      * @param float $quantiteLivree
      * @return Production
      */
-    public function setQuantiteLivree($quantiteLivree)
-    {
+    public function setQuantiteLivree($quantiteLivree) {
         $this->quantiteLivree = $quantiteLivree;
 
         return $this;
@@ -92,8 +90,7 @@ class Production
      *
      * @return float 
      */
-    public function getQuantiteLivree()
-    {
+    public function getQuantiteLivree() {
         return $this->quantiteLivree;
     }
 
@@ -103,8 +100,7 @@ class Production
      * @param \DateTime $dateLivraison
      * @return Production
      */
-    public function setDateLivraison($dateLivraison)
-    {
+    public function setDateLivraison($dateLivraison) {
         $this->dateLivraison = $dateLivraison;
 
         return $this;
@@ -115,8 +111,7 @@ class Production
      *
      * @return \DateTime 
      */
-    public function getDateLivraison()
-    {
+    public function getDateLivraison() {
         return $this->dateLivraison;
     }
 
@@ -126,8 +121,7 @@ class Production
      * @param \DateTime $dateLancement
      * @return Production
      */
-    public function setDateLancement($dateLancement)
-    {
+    public function setDateLancement($dateLancement) {
         $this->dateLancement = $dateLancement;
 
         return $this;
@@ -138,8 +132,7 @@ class Production
      *
      * @return \DateTime 
      */
-    public function getDateLancement()
-    {
+    public function getDateLancement() {
         return $this->dateLancement;
     }
 
@@ -149,8 +142,7 @@ class Production
      * @param string $statut
      * @return Production
      */
-    public function setStatut($statut)
-    {
+    public function setStatut($statut) {
         $this->statut = $statut;
 
         return $this;
@@ -161,17 +153,16 @@ class Production
      *
      * @return string 
      */
-    public function getStatut()
-    {
+    public function getStatut() {
         return $this->statut;
     }
+
     function getProducteur() {
         return $this->producteur;
     }
 
-    function setProducteur($producteur) {
+    function setProducteur(Personne $producteur) {
         $this->producteur = $producteur;
     }
-
 
 }
