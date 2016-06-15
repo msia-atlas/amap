@@ -1,0 +1,53 @@
+{% extends 'AmapBundle:Default:layout.html.twig' %}
+
+{% block main -%}
+    <div class="row">
+        <div class ="col-md-12 titre">
+            <h1>Liste des paniers types</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Libelle</th>
+                        <th>Saison</th>
+                        <th>Type</th>
+                        <th>Prix</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for entity in entities %}
+                        <tr>
+                            <td><a href="{{ path('panierType_show', { 'id': entity.id }) }}">{{ entity.libelle }}</a></td>
+                            <td>{{ entity.saison }}</td>
+                            <td>{{ entity.typePanier }}</td>
+                            <td>{{ entity.prix }}</td>
+                            <td>
+                                <ul>
+                                    <li>
+                                        <a href="{{ path('panierType_show', { 'id': entity.id }) }}">show</a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ path('panierType_edit', { 'id': entity.id }) }}">Modifier</a>
+                                    </li>
+                                </ul>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="row">
+        <a href="{{ path('panierType_new') }}"class="btn btn-success pull-right" role="button">
+            Ajouter un panier type            </a>
+    
+</div>
+
+
+
+{% endblock %}

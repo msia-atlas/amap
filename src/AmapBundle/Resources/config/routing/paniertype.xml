@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<routes xmlns="http://symfony.com/schema/routing"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://symfony.com/schema/routing http://symfony.com/schema/routing/routing-1.0.xsd">
+
+    <route id="panierType" path="/">
+        <default key="_controller">AmapBundle:PanierType:index</default>
+    </route>
+
+    <route id="panierType_show" path="/{id}/show">
+        <default key="_controller">AmapBundle:PanierType:show</default>
+    </route>
+
+    <route id="panierType_new" path="/new">
+        <default key="_controller">AmapBundle:PanierType:new</default>
+    </route>
+
+    <route id="panierType_create" path="/create" methods="POST">
+        <default key="_controller">AmapBundle:PanierType:create</default>
+    </route>
+
+    <route id="panierType_edit" path="/{id}/edit">
+        <default key="_controller">AmapBundle:PanierType:edit</default>
+    </route>
+
+    <route id="panierType_update" path="/{id}/update" methods="POST|PUT">
+        <default key="_controller">AmapBundle:PanierType:update</default>
+    </route>
+
+    <route id="panierType_delete" path="/{id}/delete" methods="POST|DELETE">
+        <default key="_controller">AmapBundle:PanierType:delete</default>
+    </route>
+
+</routes>

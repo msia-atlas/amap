@@ -18,6 +18,8 @@
     <import resource="@AmapBundle/Resources/config/routing/production.xml" prefix="/producteur/production"/>
     <import resource="@AmapBundle/Resources/config/routing/responsable.xml" prefix="administrateur/responsable"/>
     <import resource="@AmapBundle/Resources/config/routing/amap.xml" prefix="/administrateur/amap"/> 
+    <import resource="@AmapBundle/Resources/config/routing/panierType.xml" prefix="/responsable/panierType"/> 
+
 </routes>
 
 

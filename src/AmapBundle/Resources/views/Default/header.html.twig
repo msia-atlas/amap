@@ -5,12 +5,12 @@
             <img src="{{ asset('bundles/amap/images/logo.jpg') }}"/>
         </div> 
         <div class="menu col-md-9 text-center">
-            <a href="index" class="col-md-2 item-menu">Accueil</a>
+            <a href="/" class="col-md-2 item-menu">Accueil</a>
             {% if is_granted("ROLE_DROIT_ACCES_RESPONSABLE") %}
                 <a href="{{path("magasin")}}" class="col-md-2 item-menu">Gestion des magasins</a>
                 <a href="{{path("contratConsommateur")}}" class="col-md-2 item-menu">Gestion des contrats Consommateurs</a>
                 <a href="{{path("contratProducteur")}}" class="col-md-2 item-menu">Gestion des contrats Producteur</a>
-                <a href="index" class="col-md-2 item-menu">Gestion des paniers</a>
+                <a href="{{path("panierType")}}" class="col-md-2 item-menu">Gestion des paniers types</a>
             {%endif%}
             {% if is_granted("ROLE_ADMIN") %}
                 <a href="{{path("amap")}}" class="col-md-2 item-menu">Gestion des Amaps</a>

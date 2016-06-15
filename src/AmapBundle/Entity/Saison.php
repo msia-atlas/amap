@@ -102,6 +102,9 @@ class Saison
      function setDateFin(\DateTime $dateFin) {
         $this->dateFin = $dateFin;
     }
+    public function __toString() {
+        return $this->libelle;
+    }
 
 }
 

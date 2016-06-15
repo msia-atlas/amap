@@ -7,8 +7,12 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Panier
  */
-class Panier
-{
+class Panier {
+
+    const TYPE_PETIT = "Petit panier";
+    const TYPE_MOYEN = "Panier moyen";
+    const TYPE_CRAND = "Grand panier";
+
     /**
      * @var integer
      */
@@ -34,14 +38,12 @@ class Panier
      */
     private $statut;
 
-
     /**
      * Get id
      *
      * @return integer 
      */
-    public function getId()
-    {
+    public function getId() {
         return $this->id;
     }
 
@@ -51,8 +53,7 @@ class Panier
      * @param string $typePanier
      * @return Panier
      */
-    public function setTypePanier($typePanier)
-    {
+    public function setTypePanier($typePanier) {
         $this->typePanier = $typePanier;
 
         return $this;
@@ -63,8 +64,7 @@ class Panier
      *
      * @return string 
      */
-    public function getTypePanier()
-    {
+    public function getTypePanier() {
         return $this->typePanier;
     }
 
@@ -74,8 +74,7 @@ class Panier
      * @param \DateTime $dateCreation
      * @return Panier
      */
-    public function setDateCreation($dateCreation)
-    {
+    public function setDateCreation($dateCreation) {
         $this->dateCreation = $dateCreation;
 
         return $this;
@@ -86,8 +85,7 @@ class Panier
      *
      * @return \DateTime 
      */
-    public function getDateCreation()
-    {
+    public function getDateCreation() {
         return $this->dateCreation;
     }
 
@@ -97,8 +95,7 @@ class Panier
      * @param array $lignePanier
      * @return Panier
      */
-    public function setLignePanier($lignePanier)
-    {
+    public function setLignePanier($lignePanier) {
         $this->lignePanier = $lignePanier;
 
         return $this;
@@ -109,8 +106,7 @@ class Panier
      *
      * @return array 
      */
-    public function getLignePanier()
-    {
+    public function getLignePanier() {
         return $this->lignePanier;
     }
 
@@ -120,8 +116,7 @@ class Panier
      * @param string $statut
      * @return Panier
      */
-    public function setStatut($statut)
-    {
+    public function setStatut($statut) {
         $this->statut = $statut;
 
         return $this;
@@ -132,8 +127,8 @@ class Panier
      *
      * @return string 
      */
-    public function getStatut()
-    {
+    public function getStatut() {
         return $this->statut;
     }
+
 }

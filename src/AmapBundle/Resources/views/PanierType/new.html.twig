@@ -1,0 +1,97 @@
+{% extends 'AmapBundle:Default:layout.html.twig' %}
+
+{% block main -%}
+    {{ form_start(form) }}
+    <div class="row">
+        <div class ="col-md-12 titre">
+            <h1>Ajouter un panier type</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class ="col-md-6">
+            {{ form_label(form.libelle) }} : 
+            {{ form_widget(form.libelle) }}
+        </div>
+    </div>
+    <div class="row">
+        <div class ="col-md-6">
+            {{ form_label(form.saison) }} : 
+            {{ form_widget(form.saison) }}
+        </div>
+    </div>
+    <div class="row">
+        <div class ="col-md-6">
+            {{ form_label(form.typePanier) }} : 
+            {{ form_widget(form.typePanier) }}
+        </div>
+    </div>
+    <div class="row">
+        <div class ="col-md-6">
+            {{ form_label(form.prix) }} : 
+            {{ form_widget(form.prix) }}
+        </div>
+    </div>
+    <div class="row">
+        <div class ="col-md-6">
+
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Produit</th>
+                        <th>Quantité</th>
+                    </tr>
+                </thead>
+                <tbody class="bodyLignePanier" data-prototype="{{ _self.lignePanier_prototype(form.lignesPanier.vars.prototype)|e('html_attr') }}">
+
+                    {% for lignePanier in form.lignesPanier %}
+                        {{ _self.lignePanier_prototype(lignePanier) }}
+                    {% endfor %}
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+    <div class="row">
+        <a href="#" class="btn btn-success add pull-right" >
+            Ajouter un produit au panier
+        </a>
+    </div>
+    <div class="row">
+        <div class ="col-md-6">
+
+            {{ form_widget(form.submit)}}
+            <div class="hidden">
+                {{ form_end(form) }}
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <a href="{{ path('panierType') }}">
+            Retourner à la liste des paniers types
+        </a>
+    </div>
+
+
+
+
+
+
+
+
+
+{% endblock %}
+{% macro lignePanier_prototype(lignePanier) %}
+    <tr>
+        <td> {{ form_widget(lignePanier.produit) }}</td>
+        <td> {{ form_widget(lignePanier.quantiteParDefaut) }}</td>
+    </tr>
+{% endmacro %}
+
+{% block javascripts %}
+    {{parent()}}
+    {% javascripts 
+        '@AmapBundle/Resources/public/js/panier/lignePanier.js'
+    %}
+    <script src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+{% endblock %}
