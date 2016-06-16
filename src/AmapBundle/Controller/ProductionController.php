@@ -42,11 +42,14 @@ class ProductionController extends Controller
         $form = $this->createCreateForm($entity);
         $form->handleRequest($request);
 
+        
+        
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();
             $em->persist($entity);
             $em->flush();
-
+            
+            
             return $this->redirect($this->generateUrl('production_show', array('id' => $entity->getId())));
         }
 
@@ -65,12 +68,14 @@ class ProductionController extends Controller
      */
     private function createCreateForm(Production $entity)
     {
+ 
         $form = $this->createForm(new ProductionType(), $entity, array(
             'action' => $this->generateUrl('production_create'),
             'method' => 'POST',
         ));
         
-        $form->add('submit', 'submit', array('label' => 'Ajouter'));
+        
+        $form->add('submit', 'submit', array('label' => 'Enregistrer une production hello','attr' => array('class' => 'btn btn-success add pull-right')));
 
         return $form;
     }
@@ -151,7 +156,7 @@ class ProductionController extends Controller
             'method' => 'PUT',
         ));
 
-        $form->add('submit', 'submit', array('label' => 'Enregeister'));
+        $form->add('Enregistrer', 'submit', array('attr' => array('class' => 'btn btn-success')));
 
         return $form;
     }
@@ -221,7 +226,7 @@ class ProductionController extends Controller
         return $this->createFormBuilder()
             ->setAction($this->generateUrl('production_delete', array('id' => $id)))
             ->setMethod('DELETE')
-            ->add('submit', 'submit', array('label' => 'Supprimer'))
+            ->add('Supprimer', 'submit', array('attr' => array('class' => 'btn btn-danger')))
             ->getForm()
         ;
     }

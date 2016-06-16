@@ -20,9 +20,6 @@ class ProductionType extends AbstractType
             ->add('quantiteLivree')
             ->add('dateLivraison')
             ->add('dateLancement')
-            ->add('statut','choice',[
-                'choices'=>['Production possible','Prochaine Production']
-            ])
         ;
     }
     

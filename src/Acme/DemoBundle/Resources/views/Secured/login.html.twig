@@ -12,10 +12,11 @@
     {% endif %}
 
     <form action="{{ path("_demo_security_check") }}" method="post" id="login">
-        <div>
-            <label for="username">Username</label>
-            <input type="text" id="username" name="_username" value="{{ last_username }}" />
-        </div>
+        <fieldset class="form-group">
+            <label for="username">Utilisateur</label>
+            <input type="text" class="form-control" id="username" name="_username" value="{{ last_username }}" required="required" />
+            <small class="text-muted">Entrer votre login</small>
+        </fieldset>
 
         <div>
             <label for="password">Password</label>
