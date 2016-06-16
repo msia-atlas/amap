@@ -25,11 +25,9 @@
                             <td>{{ entity.quantiteLivree }}</td>
                             <td>{% if entity.dateLancement %}{{ entity.dateLancement|date('Y-m-d H:i:s') }}{% endif %}</td>
                             <td>{% if entity.dateLivraison %}{{ entity.dateLivraison|date('Y-m-d H:i:s') }}{% endif %}</td>
-
                             <td>
 
                                 <a href="{{ path('production_edit', { 'id': entity.id }) }}" class="btn btn-default btn-xs" role="button">Modifier</a>
-
                                 <a href="{{ path('production_delete', { 'id': entity.id }) }}" class="btn btn-danger btn-xs" role="button">Supprimer</a>
 
                             </td>

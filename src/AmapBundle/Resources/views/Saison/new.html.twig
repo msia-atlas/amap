@@ -1,15 +1,64 @@
 {% extends 'AmapBundle:Default:layout.html.twig' %}
 
 {% block main -%}
-    <h1>Saison creation</h1>
+    {{ form_start(form) }}
+     <div class="row">
+        <div class ="col-md-12 titre">
+             <h1>Création d'une saison</h1>
+        </div>
+    </div>
+     
+     
+     <fieldset class="form-group">    
+            <div class="row">
+                <div class ="col-md-2">
+                    {{ form_label(form.libelle,'Libelle :') }}
+                </div>
+                <div class ="col-md-4" >
+                        {{ form_widget(form.libelle,{'attr': {'class': 'form-control'}}) }}
+                </div>
+            </div>
+     </fieldset>
+     <fieldset class="form-group">    
+            <div class="row">
+                <div class ="col-md-2">
+                    {{ form_label(form.dateDebut,'Date de début :') }}
+                </div>
+                <div class ="col-md-4" >
+                        {{ form_widget(form.dateDebut.day,{'attr': {'class': 'form-control'}}) }}
+                        {{ form_widget(form.dateDebut.month,{'attr': {'class': 'form-control'}}) }}
+                        {{ form_widget(form.dateDebut.year,{'attr': {'class': 'form-control'}}) }}
 
-    {{ form(form) }}
+            </div>
+     </fieldset>
+     <fieldset class="form-group">    
+            <div class="row">
+                <div class ="col-md-2">
+                    {{ form_label(form.dateFin,'Date de début :') }}
+                </div>
+                <div class ="col-md-4" >
+                        {{ form_widget(form.dateFin.day,{'attr': {'class': 'form-control'}}) }}
+                        {{ form_widget(form.dateFin.month,{'attr': {'class': 'form-control'}}) }}
+                        {{ form_widget(form.dateFin.year,{'attr': {'class': 'form-control'}}) }}
+                </div>
+            </div>
+     </fieldset>
+     
+    <div class="row">
+         {{ form_widget(form.submit)}}
+         {{ form_end(form) }}
+    </div>     
+            
 
-        <ul class="record_actions">
-    <li>
-        <a href="{{ path('saison') }}">
-            Retour à la liste des saisons
-        </a>
-    </li>
-</ul>
+    <div class="row">
+        <div class="record_actions">
+            <ul>
+                <li>
+                    <a href="{{ path('saison') }}">
+                        Retourner à la liste des saisons
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
 {% endblock %}
