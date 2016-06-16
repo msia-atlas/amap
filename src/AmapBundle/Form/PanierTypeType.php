@@ -37,7 +37,7 @@ class PanierTypeType extends AbstractType {
                     'allow_add' => true,
                     'allow_delete' => true,
                     'prototype' => true,
-                    'prototype_name' => 'lignePanierProto',
+                    'prototype_name' => 'lignePanierProto__name__',
                     'options' => array(
                     // options on the rendered TagTypes
                     ),
@@ -50,7 +50,7 @@ class PanierTypeType extends AbstractType {
      */
     public function setDefaultOptions(OptionsResolverInterface $resolver) {
         $resolver->setDefaults(array(
-            'data_class' => 'AmapBundle\Entity\PanierType'
+            'data_class' => 'AmapBundle\Entity\Panier'
         ));
     }
 

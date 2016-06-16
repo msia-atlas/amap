@@ -21,7 +21,7 @@ class PreferenceConsommateurController extends Controller {
     public function indexAction() {
         /* @var $em AbstractManagerRegistry|ObjectManager */
         $em = $this->getDoctrine()->getManager();
-        //     echo(     $courrentUser = $this->get('security.context')->getToken()->getUser());
+        //echo(     $courrentUser = $this->get('security.context')->getToken()->getUser());
 
         $courrentUser = $this->get('security.context')->getToken()->getUser();
        // $courrentUser = $em->getRepository('AmapBundle:Personne')->findOneByUsername($courrentUserName);
