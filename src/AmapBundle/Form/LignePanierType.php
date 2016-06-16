@@ -17,7 +17,6 @@ class LignePanierType extends AbstractType
         $builder
             ->add('produit')
             ->add('quantiteParDefaut')
-           
         ;
     }
     

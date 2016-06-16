@@ -5,46 +5,52 @@ namespace AmapBundle\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
-use AmapBundle\Entity\PanierType;
+use AmapBundle\Entity\Panier;
 use AmapBundle\Form\PanierTypeType;
-
+use DateTime;
 /**
- * PanierType controller.
+ * Panier controller.
  *
  */
 class PanierTypeController extends Controller
 {
 
     /**
-     * Lists all PanierType entities.
+     * Lists all Panier entities.
      *
      */
     public function indexAction()
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entities = $em->getRepository('AmapBundle:PanierType')->findAll();
+        $entities = $em->getRepository('AmapBundle:Panier')->findBy(array('statut'=>  Panier::STATUT_TYPE));
 
         return $this->render('AmapBundle:PanierType:index.html.twig', array(
             'entities' => $entities,
         ));
     }
     /**
-     * Creates a new PanierType entity.
+     * Creates a new Panier entity.
      *
      */
     public function createAction(Request $request)
     {
-        $entity = new PanierType();
+        var_dump($request);
+        $entity = new Panier();
         $form = $this->createCreateForm($entity);
         $form->handleRequest($request);
-
+        $entity->setDateCreation(new DateTime());
+        $entity->setStatut(Panier::STATUT_TYPE);
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();
+            foreach($entity->getLignesPanier() as $ligne){
+                $ligne->setPanier($entity);
+                var_dump($ligne->getProduit()->getLibelle());
+            }
             $em->persist($entity);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('panierType_show', array('id' => $entity->getId())));
+         //   return $this->redirect($this->generateUrl('panierType_show', array('id' => $entity->getId())));
         }
 
         return $this->render('AmapBundle:PanierType:new.html.twig', array(
@@ -54,13 +60,13 @@ class PanierTypeController extends Controller
     }
 
     /**
-     * Creates a form to create a PanierType entity.
+     * Creates a form to create a Panier entity.
      *
-     * @param PanierType $entity The entity
+     * @param Panier $entity The entity
      *
      * @return \Symfony\Component\Form\Form The form
      */
-    private function createCreateForm(PanierType $entity)
+    private function createCreateForm(Panier $entity)
     {
         $form = $this->createForm(new PanierTypeType(), $entity, array(
             'action' => $this->generateUrl('panierType_create'),
@@ -72,27 +78,27 @@ class PanierTypeController extends Controller
         return $form;
     }
     /**
-     * Creates a form to create a PanierType entity.
+     * Creates a form to create a Panier entity.
      *
-     * @param PanierType $entity The entity
+     * @param Panier $entity The entity
      *
      * @return \Symfony\Component\Form\Form The form
      */
     private function creatLignePanierForm(LignePanier $entity)
     {
-        $form = $this->createForm(new LignePanierType(), $entity, array(
+        $form = $this->createForm(new LignePanier(), $entity, array(
             'action' => $this->generateUrl('panierType_create'),
             'method' => 'POST',
         ));
         return $form;
     }
     /**
-     * Displays a form to create a new PanierType entity.
+     * Displays a form to create a new Panier entity.
      *
      */
     public function newAction()
     {
-        $entity = new PanierType();
+        $entity = new Panier();
         $form   = $this->createCreateForm($entity);
        
         return $this->render('AmapBundle:PanierType:new.html.twig', array(
@@ -102,19 +108,22 @@ class PanierTypeController extends Controller
     }
 
     /**
-     * Finds and displays a PanierType entity.
+     * Finds and displays a Panier entity.
      *
      */
     public function showAction($id)
     {
         $em = $this->getDoctrine()->getManager();
-
-        $entity = $em->getRepository('AmapBundle:PanierType')->find($id);
+        /* @var $entity Panier */
+        $entity = $em->getRepository('AmapBundle:Panier')->find($id);
 
         if (!$entity) {
-            throw $this->createNotFoundException('Unable to find PanierType entity.');
+            throw $this->createNotFoundException('Unable to find Panier entity.');
         }
-
+       
+        foreach($entity->getLignesPanier() as $ligne){
+             var_dump($ligne->getProduit()->getLibelle());
+        }
         $deleteForm = $this->createDeleteForm($id);
 
         return $this->render('AmapBundle:PanierType:show.html.twig', array(
@@ -124,17 +133,17 @@ class PanierTypeController extends Controller
     }
 
     /**
-     * Displays a form to edit an existing PanierType entity.
+     * Displays a form to edit an existing Panier entity.
      *
      */
     public function editAction($id)
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entity = $em->getRepository('AmapBundle:PanierType')->find($id);
+        $entity = $em->getRepository('AmapBundle:Panier')->find($id);
 
         if (!$entity) {
-            throw $this->createNotFoundException('Unable to find PanierType entity.');
+            throw $this->createNotFoundException('Unable to find Panier entity.');
         }
 
         $editForm = $this->createEditForm($entity);
@@ -148,13 +157,13 @@ class PanierTypeController extends Controller
     }
 
     /**
-    * Creates a form to edit a PanierType entity.
+    * Creates a form to edit a Panier entity.
     *
-    * @param PanierType $entity The entity
+    * @param Panier $entity The entity
     *
     * @return \Symfony\Component\Form\Form The form
     */
-    private function createEditForm(PanierType $entity)
+    private function createEditForm(Panier $entity)
     {
         $form = $this->createForm(new PanierTypeType(), $entity, array(
             'action' => $this->generateUrl('panierType_update', array('id' => $entity->getId())),
@@ -166,17 +175,17 @@ class PanierTypeController extends Controller
         return $form;
     }
     /**
-     * Edits an existing PanierType entity.
+     * Edits an existing Panier entity.
      *
      */
     public function updateAction(Request $request, $id)
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entity = $em->getRepository('AmapBundle:PanierType')->find($id);
+        $entity = $em->getRepository('AmapBundle:Panier')->find($id);
 
         if (!$entity) {
-            throw $this->createNotFoundException('Unable to find PanierType entity.');
+            throw $this->createNotFoundException('Unable to find Panier entity.');
         }
 
         $deleteForm = $this->createDeleteForm($id);
@@ -196,7 +205,7 @@ class PanierTypeController extends Controller
         ));
     }
     /**
-     * Deletes a PanierType entity.
+     * Deletes a Panier entity.
      *
      */
     public function deleteAction(Request $request, $id)
@@ -206,10 +215,10 @@ class PanierTypeController extends Controller
 
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();
-            $entity = $em->getRepository('AmapBundle:PanierType')->find($id);
+            $entity = $em->getRepository('AmapBundle:Panier')->find($id);
 
             if (!$entity) {
-                throw $this->createNotFoundException('Unable to find PanierType entity.');
+                throw $this->createNotFoundException('Unable to find Panier entity.');
             }
 
             $em->remove($entity);
@@ -220,7 +229,7 @@ class PanierTypeController extends Controller
     }
 
     /**
-     * Creates a form to delete a PanierType entity by id.
+     * Creates a form to delete a Panier entity by id.
      *
      * @param mixed $id The entity id
      *

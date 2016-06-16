@@ -7,8 +7,8 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * LignePanier
  */
-class LignePanier
-{
+class LignePanier {
+
     /**
      * @var integer
      */
@@ -29,14 +29,18 @@ class LignePanier
      */
     private $quantiteParDefaut;
 
+    /**
+     *
+     * @var Panier 
+     */
+    private $panier;
 
     /**
      * Get id
      *
      * @return integer 
      */
-    public function getId()
-    {
+    public function getId() {
         return $this->id;
     }
 
@@ -46,8 +50,7 @@ class LignePanier
      * @param integer $quantite
      * @return LignePanier
      */
-    public function setQuantite($quantite)
-    {
+    public function setQuantite($quantite) {
         $this->quantite = $quantite;
 
         return $this;
@@ -58,8 +61,7 @@ class LignePanier
      *
      * @return integer 
      */
-    public function getQuantite()
-    {
+    public function getQuantite() {
         return $this->quantite;
     }
 
@@ -69,8 +71,7 @@ class LignePanier
      * @param string $produit
      * @return LignePanier
      */
-    public function setProduit($produit)
-    {
+    public function setProduit($produit) {
         $this->produit = $produit;
 
         return $this;
@@ -81,8 +82,7 @@ class LignePanier
      *
      * @return string 
      */
-    public function getProduit()
-    {
+    public function getProduit() {
         return $this->produit;
     }
 
@@ -92,8 +92,7 @@ class LignePanier
      * @param integer $quantiteParDefaut
      * @return LignePanier
      */
-    public function setQuantiteParDefaut($quantiteParDefaut)
-    {
+    public function setQuantiteParDefaut($quantiteParDefaut) {
         $this->quantiteParDefaut = $quantiteParDefaut;
 
         return $this;
@@ -104,8 +103,16 @@ class LignePanier
      *
      * @return integer 
      */
-    public function getQuantiteParDefaut()
-    {
+    public function getQuantiteParDefaut() {
         return $this->quantiteParDefaut;
     }
+    function getPanier() {
+        return $this->panier;
+    }
+
+    function setPanier(Panier $panier) {
+        $this->panier = $panier;
+    }
+
+
 }

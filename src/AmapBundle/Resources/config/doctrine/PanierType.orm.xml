@@ -19,6 +19,5 @@
         <field name="libelle" type="string" column="libelle" length="255"/>
         <field name="typePanier" type="string" column="typePanier" length="255"/>
         <field name="prix" type="decimal" column="prix" length="255"/>
-
     </entity>
 </doctrine-mapping>

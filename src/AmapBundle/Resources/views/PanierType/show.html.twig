@@ -34,8 +34,8 @@
                     </tr>
                 </thead>
                 <tbody class="bodyLignePanier">
-                  
-                    {% for ligne in entity.lignesPanier %}
+                {{ entity.lignesPanier|length}}
+                    {% for lignePanier in entity.lignesPanier %}
                         <tr>
                             <td>{{lignePanier.produit.libelle}}</td>
                             <td>{{lignePanier.quantiteParDefaut}}</td>

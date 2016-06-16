@@ -12,12 +12,15 @@ class Panier {
     const TYPE_PETIT = "Petit panier";
     const TYPE_MOYEN = "Panier moyen";
     const TYPE_CRAND = "Grand panier";
-
+    const STATUT_TYPE = "Panier Type";
     /**
      * @var integer
      */
     private $id;
-
+       /**
+     * @var string
+     */
+    private $libelle;
     /**
      * @var string
      */
@@ -27,17 +30,29 @@ class Panier {
      * @var \DateTime
      */
     private $dateCreation;
-
     /**
-     * @var array
+     * @var Saison
      */
-    private $lignePanier;
+    private $saison;
+    /**
+     * @var LignePanier[]
+     */
+    private $lignesPanier;
 
     /**
      * @var string
      */
     private $statut;
-
+    /**
+     *
+     * @var float
+     */
+    private $prix;
+        /**
+     *
+     * @var Amap 
+     */
+    private $amap;
     /**
      * Get id
      *
@@ -89,27 +104,7 @@ class Panier {
         return $this->dateCreation;
     }
 
-    /**
-     * Set lignePanier
-     *
-     * @param array $lignePanier
-     * @return Panier
-     */
-    public function setLignePanier($lignePanier) {
-        $this->lignePanier = $lignePanier;
-
-        return $this;
-    }
-
-    /**
-     * Get lignePanier
-     *
-     * @return array 
-     */
-    public function getLignePanier() {
-        return $this->lignePanier;
-    }
-
+    
     /**
      * Set statut
      *
@@ -130,5 +125,45 @@ class Panier {
     public function getStatut() {
         return $this->statut;
     }
+    function getSaison() {
+        return $this->saison;
+    }
+
+    function getPrix() {
+        return $this->prix;
+    }
+
+    function getAmap() {
+        return $this->amap;
+    }
+
+    function setSaison(Saison $saison) {
+        $this->saison = $saison;
+    }
+
+    function setPrix( $prix) {
+        $this->prix = $prix;
+    }
+
+    function setAmap(Amap $amap) {
+        $this->amap = $amap;
+    }
+
+    function getLibelle() {
+        return $this->libelle;
+    }
+
+    function setLibelle($libelle) {
+        $this->libelle = $libelle;
+    }
+
+    function getLignesPanier() {
+        return $this->lignesPanier;
+    }
+
+    function setLignesPanier( $lignesPanier) {
+        $this->lignesPanier = $lignesPanier;
+    }
+
 
 }

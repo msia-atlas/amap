@@ -9,7 +9,9 @@
         <many-to-one field="produit" target-entity="Produit">
             <join-column name="produit" referenced-column-name="id" />
         </many-to-one>
-        
+          <many-to-one field="panier" target-entity="Panier">
+            <join-column name="panier" referenced-column-name="id" />
+        </many-to-one>
         <field name="quantiteParDefaut" type="integer" column="quantiteParDefaut"/>
         
     </entity>
