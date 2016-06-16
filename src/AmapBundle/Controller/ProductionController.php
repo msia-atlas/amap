@@ -75,7 +75,7 @@ class ProductionController extends Controller
         ));
         
         
-        $form->add('submit', 'submit', array('label' => 'Enregistrer une production hello','attr' => array('class' => 'btn btn-success add pull-right')));
+        $form->add('submit', 'submit', array('label' => 'Enregistrer une production','attr' => array('class' => 'btn btn-success add pull-right')));
 
         return $form;
     }
