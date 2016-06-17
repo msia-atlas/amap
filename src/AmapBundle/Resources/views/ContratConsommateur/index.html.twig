@@ -9,18 +9,16 @@
     <table class="table table-striped" id="tableauGestion">
         <thead>
             <tr>
-                <th>Consommateur</th>
-                <th>Listelivraison</th>
-                <th>Id</th>
+                <th>Saison</th>
+                <th>Statut</th>
                 <th>Actions</th>
             </tr>
         </thead>
         <tbody>
         {% for entity in entities %}
             <tr>
-                <td><a href="{{ path('contratConsommateur_show', { 'id': entity.id }) }}">{{ entity.consommateur }}</a></td>
-                <td>{{ entity.listeLivraison }}</td>
-                <td>{{ entity.id }}</td>
+                <td><a href="{{ path('contratConsommateur_show', { 'id': entity.id }) }}">{{ entity.saison.libelle }}</a></td>
+                <td>{{ entity.statut }}</td>
                 <td>
                 <ul>
                     <li>
@@ -38,7 +36,7 @@
 </div>
 <div class="row">
     <a href="{{ path('contratConsommateur_new') }}" class="btn btn-success pull-right" role="button">
-        Ajouter un magasin
+        Nouveau contrat
     </a>
 </div>
 {% endblock %}

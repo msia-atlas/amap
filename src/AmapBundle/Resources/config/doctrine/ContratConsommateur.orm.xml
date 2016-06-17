@@ -1,7 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
-  <entity name="AmapBundle\Entity\ContratConsommateur">
-    <field name="consommateur" type="string" column="consommateur" length="255"/>
-    <field name="listeLivraison" type="array" column="listeLivraison"/>
-  </entity>
+    <entity name="AmapBundle\Entity\ContratConsommateur">
+        <id name="id" type="integer" column="id">
+            <generator strategy="AUTO"/>
+        </id>
+        <field name="dateSignature" type="date" column="dateSignature" nullable="true"/>
+        <field name="statut" type="string" column="statut" length="255"/>
+        <many-to-one field="consommateur" target-entity="Personne">
+            <join-column name="consommateur" referenced-column-name="id" />
+        </many-to-one>
+        <many-to-one field="saison" target-entity="Saison">
+            <join-column name="saison" referenced-column-name="id" />
+        </many-to-one>
+        <field name="listeLivraison" type="array" column="listeLivraison" nullable="true"/>
+    </entity>
 </doctrine-mapping>

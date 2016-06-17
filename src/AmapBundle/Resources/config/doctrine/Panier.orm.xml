@@ -7,9 +7,6 @@
         <many-to-one field="saison" target-entity="Saison">
             <join-column name="saison" referenced-column-name="id" />
         </many-to-one>
-        <many-to-one field="amap" target-entity="Amap">
-            <join-column name="id" referenced-column-name="id" />
-        </many-to-one>
         <one-to-many field="lignesPanier" target-entity="LignePanier" mapped-by="panier" >
             <cascade>
                 <cascade-remove />
@@ -22,5 +19,8 @@
         <field name="dateCreation" type="date" column="dateCreation"/>
         <field name="statut" type="string" column="statut" length="255"/>
         <field name="prix" type="decimal" column="prix"/>
+        <many-to-one field="amap" target-entity="Amap">
+            <join-column name="amap" referenced-column-name="id" />
+        </many-to-one>
     </entity>
 </doctrine-mapping>

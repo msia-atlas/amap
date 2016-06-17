@@ -3,16 +3,17 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/xampp/htdocs/amap/src/AmapBundle/Resources/config/doctrine/LignePanier.orm.xml</file>
-            <file>file:/C:/xampp/htdocs/amap/src/AmapBundle/Entity/PanierType.php</file>
-            <file>file:/C:/xampp/htdocs/amap/src/AmapBundle/Resources/views/PanierType/new.html.twig</file>
-            <file>file:/C:/xampp/htdocs/amap/src/AmapBundle/Entity/Saison.php</file>
+            <file>file:/C:/xampp/htdocs/amap/src/AmapBundle/Entity/ContratConsommateur.php</file>
+            <file>file:/C:/xampp/htdocs/amap/src/AmapBundle/Resources/views/ContratConsommateur/index.html.twig</file>
+            <file>file:/C:/xampp/htdocs/amap/src/AmapBundle/Form/ContratConsommateurType.php</file>
+            <file>file:/C:/xampp/htdocs/amap/src/AmapBundle/Entity/Contrat.php</file>
+            <file>file:/C:/xampp/htdocs/amap/src/AmapBundle/Resources/views/ContratConsommateur/new.html.twig</file>
+            <file>file:/C:/xampp/htdocs/amap/src/AmapBundle/Resources/config/doctrine/Contrat.orm.xml</file>
+            <file>file:/C:/xampp/htdocs/amap/src/AmapBundle/Resources/views/ContratConsommateur/show.html.twig</file>
+            <file>file:/C:/xampp/htdocs/amap/src/AmapBundle/Controller/ContratConsommateurController.php</file>
             <file>file:/C:/xampp/htdocs/amap/src/AmapBundle/Form/PanierTypeType.php</file>
-            <file>file:/C:/xampp/htdocs/amap/src/AmapBundle/Form/LignePanierType.php</file>
-            <file>file:/C:/xampp/htdocs/amap/src/AmapBundle/Resources/public/js/panier/lignePanier.js</file>
-            <file>file:/C:/xampp/htdocs/amap/src/AmapBundle/Resources/views/LignePanier/table_template.html.twig</file>
-            <file>file:/C:/xampp/htdocs/amap/src/AmapBundle/Controller/PanierTypeController.php</file>
-            <file>file:/C:/xampp/htdocs/amap/src/AmapBundle/Resources/config/doctrine/PreferenceConsommateur.orm.xml</file>
+            <file>file:/C:/xampp/htdocs/amap/composer.json</file>
+            <file>file:/C:/xampp/htdocs/amap/src/AmapBundle/Resources/config/doctrine/ContratConsommateur.orm.xml</file>
         </group>
     </open-files>
 </project-private>

@@ -4,7 +4,7 @@
     <id name="id" type="integer" column="id">
       <generator strategy="AUTO"/>
     </id>
-    <field name="dateSignature" type="date" column="dateSignature"/>
+    <field name="dateSignature" type="date" column="dateSignature" nullable="true"/>
     <field name="statut" type="string" column="statut" length="255"/>
   </entity>
 </doctrine-mapping>

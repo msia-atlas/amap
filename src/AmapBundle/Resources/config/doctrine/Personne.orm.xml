@@ -22,5 +22,9 @@
         <field name="disponibilite" type="array" column="disponibilite" nullable="true"/>
         <field name="indiceConfiance" type="integer" column="indiceConfiance" nullable="true"/>
         <one-to-many field="productions" target-entity="Production" mapped-by="id" nullable="true" />
+        <many-to-one field="amap" target-entity="Amap">
+            <join-column name="amap" referenced-column-name="id" />
+        </many-to-one>
+    
     </entity>
 </doctrine-mapping>

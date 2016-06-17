@@ -1,16 +1,37 @@
 {% extends '::base.html.twig' %}
 
 {% block main -%}
-    <h1>ContratConsommateur edit</h1>
+    <div class="row">
+        <div class ="col-md-12 titre">
+            <h1>Contrats pour la saison {{entity.saison.libelle}}</h1>
+        </div>
+    </div>
+    <div class="row">
+        <h1>ContratConsommateur edit</h1>
 
-    {{ form(edit_form) }}
+        {{ form(edit_form) }}
 
         <ul class="record_actions">
-    <li>
-        <a href="{{ path('contratconsommateur') }}">
-           Retour aux contrats consomateurs
-        </a>
-    </li>
-    <li>{{ form(delete_form) }}</li>
-</ul>
+            <li>
+                <a href="{{ path('contratConsommateur') }}">
+                    Retour aux contrats consomateurs
+                </a>
+            </li>
+            <li>{{ form(delete_form) }}</li>
+        </ul>
+    </div>
+    <div class="row">
+        {%for panier in paniers%}
+            <div class="col-lg-3">
+                <div class="entetePanier">
+                    {{panier.libelle}}
+                </div>
+                <div class="contentPanier">
+                    {%for lignePanier in panier.LignesPanier%}
+                        {{lignePanier.produit.libelle}} : {{ligenPanier.quantiteParDefaut}}
+                    {%endfor%}
+                </div>
+            </div>
+        {%endfor%}
+    </div>
 {% endblock %}
