@@ -10,7 +10,7 @@
     <field name="quantiteLivree" type="float" column="quantiteLivree"/>
     <field name="dateLivraison" type="date" column="dateLivraison"/>
     <field name="dateLancement" type="date" column="dateLancement"/>
-    <field name="statut" type="string" column="statut" length="255"/>
+    <field name="statut" type="string" column="statut" length="255" nullable="true"/>
     <many-to-one field="producteur" target-entity="Personne" inversed-by="produits">
             <join-column name="idProducteur" referenced-column-name="id" />
      </many-to-one>

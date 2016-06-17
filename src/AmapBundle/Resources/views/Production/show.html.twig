@@ -1,48 +1,54 @@
-{% extends '::base.html.twig' %}
+{% extends 'AmapBundle:Default:layout.html.twig' %}
 
-{% block body -%}
-    <h1>Production</h1>
+{% block main -%}
+    <div class="row">
+        <div class ="col-md-12 titre">
+            <h1><h1>Production</h1></h1>
+        </div>
+    </div>
+    
 
-    <table class="record_properties">
+    <table class="table table-striped"> 
         <tbody>
             <tr>
-                <th>Produit</th>
-                <td>{{ entity.produit }}</td>
+                <th class="col-md-2">Produit </th>
+                <td class="col-md-3">{{ entity.produit }}</td>
             </tr>
             <tr>
-                <th>Quantitelivree</th>
-                <td>{{ entity.quantiteLivree }}</td>
+                <th class="col-md-2">Quantite livrée</th>
+                <td class="col-md-3">{{ entity.quantiteLivree }}</td>
             </tr>
             <tr>
-                <th>Datelivraison</th>
-                <td>{{ entity.dateLivraison|date('Y-m-d H:i:s') }}</td>
+                <th class="col-md-2">Date de livraison</th>
+                <td class="col-md-3">{{ entity.dateLivraison|date('Y-m-d') }}</td>
             </tr>
             <tr>
-                <th>Datelancement</th>
-                <td>{{ entity.dateLancement|date('Y-m-d H:i:s') }}</td>
-            </tr>
-            <tr>
-                <th>Statut</th>
-                <td>{{ entity.statut }}</td>
-            </tr>
-            <tr>
-                <th>Id</th>
-                <td>{{ entity.id }}</td>
+                <th class="col-md-2">Date de lancement</th>
+                <td>{{ entity.dateLancement|date('Y-m-d') }}</td>
             </tr>
         </tbody>
     </table>
+    <div class="row">
+        <div class ="col-md-1">
+            <a href="{{ path('production_edit', { 'id': entity.id }) }}"  class="btn btn-default" role="button">
+                Modifier
+            </a>
+        </div>
+        <div class ="col-md-1">   
+            {{ form(delete_form) }}
+        </div>    
+    </div>
+        
 
-        <ul class="record_actions">
-    <li>
-        <a href="{{ path('production') }}">
-            Back to the list
-        </a>
-    </li>
-    <li>
-        <a href="{{ path('production_edit', { 'id': entity.id }) }}">
-            Edit
-        </a>
-    </li>
-    <li>{{ form(delete_form) }}</li>
-</ul>
+    <div class="row">
+        <div class="record_actions">
+            <ul>
+                <li>
+                    <a href="{{ path('production') }}">
+                        Retourner à la liste des productions
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
 {% endblock %}

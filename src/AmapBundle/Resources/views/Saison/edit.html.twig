@@ -1,16 +1,68 @@
-{% extends '::base.html.twig' %}
+{% extends 'AmapBundle:Default:layout.html.twig' %}
+{% block main -%}
+{{ form_start(edit_form) }}
+    <div class="row">
+        <div class ="col-md-12 titre">
+            <h1>Edition de saison</h1>
+        </div>
+    </div>
 
-{% block body -%}
-    <h1>Saison edit</h1>
+     <fieldset class="form-group">    
+        <div class="row">
+            <div class ="col-md-2">
+                {{ form_label(edit_form.libelle,'Libelle :') }}
+            </div>
+            <div class ="col-md-4" >
+                    {{ form_widget(edit_form.libelle,{'attr': {'class': 'form-control'}}) }}
+            </div>
+        </div>
+    </fieldset>
+    
+    <fieldset class="form-group">    
+        <div class="row">
+            <div class ="col-md-2">
+                {{ form_label(edit_form.dateDebut,'Libelle :') }}
+            </div>
+            <div class ="col-md-4" >
+                    {{ form_widget(edit_form.dateDebut.day,{'attr': {'class': 'form-control'}}) }}
+                    {{ form_widget(edit_form.dateDebut.month,{'attr': {'class': 'form-control'}}) }}
+                    {{ form_widget(edit_form.dateDebut.year,{'attr': {'class': 'form-control'}}) }}
+            </div>
+        </div>
+    </fieldset>
+    
+     <fieldset class="form-group">    
+        <div class="row">
+            <div class ="col-md-2">
+                {{ form_label(edit_form.dateDebut,'Libelle :') }}
+            </div>
+            <div class ="col-md-4" >
+                    {{ form_widget(edit_form.dateFin.day,{'attr': {'class': 'form-control'}}) }}
+                    {{ form_widget(edit_form.dateFin.month,{'attr': {'class': 'form-control'}}) }}
+                    {{ form_widget(edit_form.dateFin.year,{'attr': {'class': 'form-control'}}) }}
+            </div>
+        </div>
+    </fieldset>
 
-    {{ form(edit_form) }}
-
-        <ul class="record_actions">
-    <li>
-        <a href="{{ path('saison') }}">
-            Back to the list
-        </a>
-    </li>
-    <li>{{ form(delete_form) }}</li>
-</ul>
+     <fieldset class="form-group">
+         <div class="row">
+                <div class ="col-md-1">
+                    {{ form(edit_form) }}
+                </div>
+                <div class ="col-md-1">
+                    {{ form(delete_form) }}
+                </div>
+        <div>
+    </fieldset>
+    <div class="row">
+        <div class="record_actions">
+            <ul>
+                <li>
+                    <a href="{{ path('saison') }}">
+                        Retourner à la liste des saisons
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
 {% endblock %}

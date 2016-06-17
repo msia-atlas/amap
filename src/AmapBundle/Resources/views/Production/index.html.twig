@@ -12,7 +12,6 @@
                 <thead>
                     <tr>
                         <th>Produit</th>
-                        <th>Statut</th>
                         <th>Quantite à livrée</th>
                         <th>Date de lancement</th>
                         <th>Date de livraison</th>            
@@ -23,15 +22,12 @@
                     {% for entity in entities %}
                         <tr>
                             <td><a href="{{ path('production_show', { 'id': entity.id }) }}">{{ entity.produit }}</a></td>
-                            <td>{{ entity.statut }}</td>
                             <td>{{ entity.quantiteLivree }}</td>
                             <td>{% if entity.dateLancement %}{{ entity.dateLancement|date('Y-m-d H:i:s') }}{% endif %}</td>
                             <td>{% if entity.dateLivraison %}{{ entity.dateLivraison|date('Y-m-d H:i:s') }}{% endif %}</td>
-
                             <td>
 
                                 <a href="{{ path('production_edit', { 'id': entity.id }) }}" class="btn btn-default btn-xs" role="button">Modifier</a>
-
                                 <a href="{{ path('production_delete', { 'id': entity.id }) }}" class="btn btn-danger btn-xs" role="button">Supprimer</a>
 
                             </td>

@@ -1,19 +1,90 @@
 {% extends 'AmapBundle:Default:layout.html.twig' %}
 
 {% block main -%}
-<div class="row">
-    <div class ="col-md-12 titre">
-        <h1>Ccréation d'un responsable</h1>
+    {{ form_start(form) }}
+    <div class="row">
+        <div class ="col-md-12 titre">
+            <h1>Création d'un responsable</h1>
+        </div>
     </div>
-</div>
-{{ form(form) }}
+    
+    <fieldset class="form-group">    
+            <div class="row">
+                <div class ="col-md-2">
+                    {{ form_label(form.email,'Email :') }}
+                </div>
+                <div class ="col-md-4" >
+                        {{ form_widget(form.email,{'attr': {'class': 'form-control'}}) }}
+                </div>
+            </div>
+     </fieldset>
+     <fieldset class="form-group">    
+           <div class="row">
+               <div class ="col-md-2">
+                   {{ form_label(form.username,"nom d'utilisateur :") }}
+               </div>
+               <div class ="col-md-4" >
+                       {{ form_widget(form.username,{'attr': {'class': 'form-control'}}) }}
+               </div>
+           </div>
+    </fieldset>
+    <fieldset class="form-group">    
+           <div class="row">
+               <div class ="col-md-4" >
+                       {{ form_widget(form.plainPassword) }}                    
+               </div>
+           </div>
+    </fieldset>
 
-<ul class="record_actions">
-    <li>
-        <a href="{{ path('responsable') }}">
-            Back to the list
-        </a>
-    </li>
-</ul>
+    <fieldset class="form-group">    
+            <div class="row">
+                <div class ="col-md-2">
+                    {{ form_label(form.nom,"Nom :") }}
+                </div>
+                <div class ="col-md-4" >
+                        {{ form_widget(form.nom,{'attr': {'class': 'form-control'}}) }}
+                </div>
+            </div>
+     </fieldset>
+            
+    <fieldset class="form-group">    
+            <div class="row">
+                <div class ="col-md-2">
+                    {{ form_label(form.prenom,"Prénom :") }}
+                </div>
+                <div class ="col-md-4" >
+                        {{ form_widget(form.prenom,{'attr': {'class': 'form-control'}}) }}
+                </div>
+            </div>
+     </fieldset>
+            
+    <fieldset class="form-group">    
+            <div class="row">
+                <div class ="col-md-2">
+                    {{ form_label(form.adresse,"Adresse :") }}
+                </div>
+                <div class ="col-md-4" >
+                        {{ form_widget(form.adresse,{'attr': {'class': 'form-control'}}) }}
+                </div>
+            </div>
+     </fieldset>
+  
+   <div class="row">
+         {{ form_widget(form.submit)}}
+         {{ form_end(form) }}
+    </div>     
+            
+
+    <div class="row">
+        <div class="record_actions">
+            <ul>
+                <li>
+                    <a href="{{ path('responsable') }}">
+                        Retourner à la liste des responsables
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
     
 {% endblock %}

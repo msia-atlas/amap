@@ -67,7 +67,8 @@ class ResponsableController extends Controller
             'method' => 'POST',
         ));
 
-        $form->add('submit', 'submit', array('label' => 'Ajouter le responsable'));
+        $form->add('submit', 'submit', array('label' => 'Enregistrer une production','attr' => array('class' => 'btn btn-success add pull-right')));
+
 
         return $form;
     }
@@ -147,7 +148,7 @@ class ResponsableController extends Controller
             'method' => 'PUT',
         ));
 
-        $form->add('submit', 'submit', array('label' => 'Update'));
+      $form->add('Enregistrer', 'submit', array('attr' => array('class' => 'btn btn-success')));
 
         return $form;
     }
@@ -217,7 +218,7 @@ class ResponsableController extends Controller
         return $this->createFormBuilder()
             ->setAction($this->generateUrl('responsable_delete', array('id' => $id)))
             ->setMethod('DELETE')
-            ->add('submit', 'submit', array('label' => 'Delete'))
+            ->add('Supprimer', 'submit', array('attr' => array('class' => 'btn btn-danger')))
             ->getForm()
         ;
     }

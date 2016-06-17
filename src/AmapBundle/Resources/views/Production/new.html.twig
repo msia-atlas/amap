@@ -1,19 +1,75 @@
 {% extends 'AmapBundle:Default:layout.html.twig' %}
 
 {% block main -%}
-      <div class="row">
+      {{ form_start(form) }}
+    <div class="row">
         <div class ="col-md-12 titre">
             <h1>Ajouter une production</h1>
         </div>
     </div>
-
-    {{ form(form) }}
-
-        <ul class="record_actions">
-    <li>
-        <a href="{{ path('production') }}">
-            Retourner à la liste des productions
-        </a>
-    </li>
-</ul>
+    
+    <fieldset class="form-group">    
+        <div class="row">
+            <div class ="col-md-2">
+                {{ form_label(form.produit,'produit :') }}
+            </div>
+            <div class ="col-md-4" >
+                    {{ form_widget(form.produit,{'attr': {'class': 'form-control'}}) }}
+            </div>
+        </div>
+    </fieldset>
+     
+    <fieldset class="form-group">    
+    <div class="row">
+        <div class ="col-md-2">
+            {{ form_label(form.quantiteLivree,'Quantité livrée :') }}
+        </div>
+        <div class ="col-md-4" >
+                {{ form_widget(form.quantiteLivree,{'attr': {'class': 'form-control'}}) }}
+        </div>
+    </div>
+    </fieldset>
+            
+    <fieldset class="form-group">    
+        <div class="row">
+            <div class ="col-md-2">
+                {{ form_label(form.dateLivraison,'Date de livraison :') }}
+            </div>
+            <div class ="col-md-4" >
+                {{ form_widget(form.dateLivraison.day,{'attr': {'class': 'form-control'}}) }}
+                {{ form_widget(form.dateLivraison.month,{'attr': {'class': 'form-control'}}) }}
+                {{ form_widget(form.dateLivraison.year,{'attr': {'class': 'form-control'}}) }}
+            </div>
+        </div>
+    </fieldset>
+    
+    <fieldset class="form-group">    
+        <div class="row">
+            <div class ="col-md-2">
+                {{ form_label(form.dateLancement,'Date de lancement :') }}
+            </div>
+            <div class ="col-md-4" >
+                {{ form_widget(form.dateLancement.day,{'attr': {'class': 'form-control'}}) }}
+                {{ form_widget(form.dateLancement.month,{'attr': {'class': 'form-control'}}) }}
+                {{ form_widget(form.dateLancement.year,{'attr': {'class': 'form-control'}}) }}
+            </div>
+        </div>
+    </fieldset>
+    
+     <div class="row">
+         {{ form_widget(form.submit)}}
+         {{ form_end(form) }}
+    </div>       
+   
+    <div class="row">
+        <div class="record_actions">
+            <ul>
+                <li>
+                    <a href="{{ path('production') }}">
+                        Retourner à la liste des productions
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
 {% endblock %}
