@@ -70,6 +70,11 @@ class Personne extends BaseUser {
     
     private $groupName;
     /**
+     *
+     * @var Amap 
+     */
+    private $amap;
+    /**
      * Get id
      *
      * @return integer 
@@ -153,6 +158,15 @@ class Personne extends BaseUser {
     function setGroupName($groupName) {
         $this->groupName = $groupName;
     }
+    function getAmap() {
+        return $this->amap;
+    }
+
+    function setAmap(Amap $amap) {
+        $this->amap = $amap;
+    }
+
+
 
 
 

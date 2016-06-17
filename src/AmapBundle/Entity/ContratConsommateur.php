@@ -7,13 +7,30 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * ContratConsommateur
  */
+class ContratConsommateur {
+  const STATUT_CREATE = "A valider";
+    const STATUT_AVSALIDER = "En attente de validation par le responsable de l'AMAP";
+    const STATUT_APAYER = "En attente de payement";
+    const STATUT_VALIDER = "Validé";
+    const STATUT_TERMINER = "Termié";
 
-class ContratConsommateur extends Contrat
+    /**
+     * @var integer
+     */
+    private $id;
 
-{
+    /**
+     * @var \DateTime
+     */
+    private $dateSignature;
 
     /**
      * @var string
+     */
+    private $statut;
+
+    /**
+     * @var Personne
      */
     private $consommateur;
 
@@ -22,16 +39,13 @@ class ContratConsommateur extends Contrat
      */
     private $listeLivraison;
 
-
     /**
-     * Get id
      *
-     * @return integer 
+     * @var Saison
      */
-    public function getId()
-    {
-        return $this->id;
-    }
+    private $saison;
+
+
 
     /**
      * Set consommateur
@@ -39,8 +53,7 @@ class ContratConsommateur extends Contrat
      * @param string $consommateur
      * @return ContratConsommateur
      */
-    public function setConsommateur($consommateur)
-    {
+    public function setConsommateur($consommateur) {
         $this->consommateur = $consommateur;
 
         return $this;
@@ -51,8 +64,7 @@ class ContratConsommateur extends Contrat
      *
      * @return string 
      */
-    public function getConsommateur()
-    {
+    public function getConsommateur() {
         return $this->consommateur;
     }
 
@@ -62,8 +74,7 @@ class ContratConsommateur extends Contrat
      * @param array $listeLivraison
      * @return ContratConsommateur
      */
-    public function setListeLivraison($listeLivraison)
-    {
+    public function setListeLivraison($listeLivraison) {
         $this->listeLivraison = $listeLivraison;
 
         return $this;
@@ -74,8 +85,40 @@ class ContratConsommateur extends Contrat
      *
      * @return array 
      */
-    public function getListeLivraison()
-    {
+    public function getListeLivraison() {
         return $this->listeLivraison;
     }
+
+    function getSaison() {
+        return $this->saison;
+    }
+
+    function setSaison(Saison $saison) {
+        $this->saison = $saison;
+    }
+    function getId() {
+        return $this->id;
+    }
+
+    function getDateSignature() {
+        return $this->dateSignature;
+    }
+
+    function getStatut() {
+        return $this->statut;
+    }
+
+    function setId($id) {
+        $this->id = $id;
+    }
+
+    function setDateSignature(\DateTime $dateSignature) {
+        $this->dateSignature = $dateSignature;
+    }
+
+    function setStatut($statut) {
+        $this->statut = $statut;
+    }
+
+
 }

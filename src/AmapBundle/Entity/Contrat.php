@@ -7,10 +7,14 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Contrat
  */
+class Contrat {
 
-class Contrat
+    const STATUT_CREATE = "A valider";
+    const STATUT_AVSALIDER = "En attente de validation par le responsable de l'AMAP";
+    const STATUT_APAYER = "En attente de payement";
+    const STATUT_VALIDER = "Validé";
+    const STATUT_TERMINER = "Termié";
 
-{
     /**
      * @var integer
      */
@@ -26,14 +30,12 @@ class Contrat
      */
     private $statut;
 
-
     /**
      * Get id
      *
      * @return integer 
      */
-    public function getId()
-    {
+    public function getId() {
         return $this->id;
     }
 
@@ -43,8 +45,7 @@ class Contrat
      * @param \DateTime $dateSignature
      * @return Contrat
      */
-    public function setDateSignature($dateSignature)
-    {
+    public function setDateSignature($dateSignature) {
         $this->dateSignature = $dateSignature;
 
         return $this;
@@ -55,8 +56,7 @@ class Contrat
      *
      * @return \DateTime 
      */
-    public function getDateSignature()
-    {
+    public function getDateSignature() {
         return $this->dateSignature;
     }
 
@@ -66,8 +66,7 @@ class Contrat
      * @param string $statut
      * @return Contrat
      */
-    public function setStatut($statut)
-    {
+    public function setStatut($statut) {
         $this->statut = $statut;
 
         return $this;
@@ -78,8 +77,8 @@ class Contrat
      *
      * @return string 
      */
-    public function getStatut()
-    {
+    public function getStatut() {
         return $this->statut;
     }
+
 }

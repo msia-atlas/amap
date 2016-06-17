@@ -24,10 +24,7 @@ class Amap
      */
     private $nom;
 
-    /**
-     * @var string
-     */
-    private $responsable;
+
 
 
     /**
@@ -84,28 +81,5 @@ class Amap
     public function getNom()
     {
         return $this->nom;
-    }
-
-    /**
-     * Set responsable
-     *
-     * @param string $responsable
-     * @return Amap
-     */
-    public function setResponsable($responsable)
-    {
-        $this->responsable = $responsable;
-
-        return $this;
-    }
-
-    /**
-     * Get responsable
-     *
-     * @return string 
-     */
-    public function getResponsable()
-    {
-        return $this->responsable;
     }
 }

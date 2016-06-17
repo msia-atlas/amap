@@ -17,7 +17,6 @@ class AmapType extends AbstractType
         $builder
             ->add('adresse')
             ->add('nom')
-            ->add('responsable')
         ;
     }
     

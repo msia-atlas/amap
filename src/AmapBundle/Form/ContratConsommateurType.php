@@ -5,7 +5,7 @@ namespace AmapBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
-
+use DateTime;
 class ContratConsommateurType extends AbstractType
 {
     /**
@@ -14,9 +14,16 @@ class ContratConsommateurType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder
-            ->add('consommateur')
-            ->add('listeLivraison')
+        $builder ->add('saison', 'entity', array(
+                    'class' => 'AmapBundle:Saison',
+                    'query_builder' => function ( $er) {
+                        return $er->createQueryBuilder('s')
+                                ->where('s.dateDebut > :now')
+                                ->setParameter('now', new DateTime())
+                                ->orderBy('s.dateDebut', 'ASC');
+                    },
+                    'choice_label' => 'libelle'
+                ))
         ;
     }
     

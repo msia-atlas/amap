@@ -12,7 +12,7 @@
     <import resource="@AmapBundle/Resources/config/routing/produit.xml" prefix="/administrateur/produit"/>
     <import resource="@AmapBundle/Resources/config/routing/saison.xml" prefix="/administrateur/saison"/>
     <import resource="@AmapBundle/Resources/config/routing/magasin.xml" prefix="/responsable/magasin"/>
-    <import resource="@AmapBundle/Resources/config/routing/contratConsommateur.xml" prefix="/responsable/contratConsommateur"/>
+    <import resource="@AmapBundle/Resources/config/routing/contratConsommateur.xml" prefix="/consommateur/contratConsommateur"/>
     <import resource="@AmapBundle/Resources/config/routing/contratProducteur.xml" prefix="/responsable/contratProducteur"/>
     <import resource="@AmapBundle/Resources/config/routing/preferenceConsommateur.xml" prefix="/consommateur/preferenceConsommateur"/>
     <import resource="@AmapBundle/Resources/config/routing/production.xml" prefix="/producteur/production"/>

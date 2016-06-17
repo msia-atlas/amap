@@ -8,6 +8,8 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use AmapBundle\Entity\Panier;
 use AmapBundle\Form\PanierTypeType;
 use DateTime;
+use AmapBundle\Util\UserUtil;
+use AmapBundle\Entity\Personne;
 /**
  * Panier controller.
  *
@@ -35,22 +37,22 @@ class PanierTypeController extends Controller
      */
     public function createAction(Request $request)
     {
-        var_dump($request);
+        $user =UserUtil::getCourrentUser($this,  Personne::$TYPE_RESPONSABLE );
         $entity = new Panier();
         $form = $this->createCreateForm($entity);
         $form->handleRequest($request);
         $entity->setDateCreation(new DateTime());
         $entity->setStatut(Panier::STATUT_TYPE);
+        $entity->setAmap($user->getAmap());
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();
             foreach($entity->getLignesPanier() as $ligne){
                 $ligne->setPanier($entity);
-                var_dump($ligne->getProduit()->getLibelle());
             }
             $em->persist($entity);
             $em->flush();
 
-         //   return $this->redirect($this->generateUrl('panierType_show', array('id' => $entity->getId())));
+            return $this->redirect($this->generateUrl('panierType_show', array('id' => $entity->getId())));
         }
 
         return $this->render('AmapBundle:PanierType:new.html.twig', array(

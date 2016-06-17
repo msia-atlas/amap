@@ -19,7 +19,7 @@
                 <a href="{{path("saison")}}" class="col-md-2 item-menu">Gestion des Saison</a>
             {%endif%}
             {% if is_granted("ROLE_DROIT_ACCES_CONSOMMATEUR") %}
-                <a href="index" class="col-md-2 item-menu">Mes contrats</a>
+                <a href="{{path("contratConsommateur")}}" class="col-md-2 item-menu">Mes contrats</a>
                 <a href="{{path("preferenceConsommateur")}}" class="col-md-2 item-menu">Gestion de mes préférences</a>
             {%endif%}
             {% if is_granted("ROLE_DROIT_ACCES_PRODUCTEUR") %}
