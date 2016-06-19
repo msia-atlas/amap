@@ -69,7 +69,7 @@ class ContratConsommateurController extends Controller {
             'method' => 'POST',
         ));
 
-        $form->add('submit', 'submit', array('label' => 'Create'));
+        $form->add('submit', 'submit', array('label' => 'Enregistrer une production','attr' => array('class' => 'btn btn-success add pull-right')));
 
         return $form;
     }
@@ -149,7 +149,7 @@ class ContratConsommateurController extends Controller {
             'method' => 'PUT',
         ));
 
-        $form->add('submit', 'submit', array('label' => 'Update'));
+        $form->add('Enregistrer', 'submit', array('attr' => array('class' => 'btn btn-success')));
 
         return $form;
     }
@@ -218,7 +218,7 @@ class ContratConsommateurController extends Controller {
         return $this->createFormBuilder()
                         ->setAction($this->generateUrl('contratConsommateur_delete', array('id' => $id)))
                         ->setMethod('DELETE')
-                        ->add('submit', 'submit', array('label' => 'Delete'))
+                        ->add('Supprimer', 'submit', array('attr' => array('class' => 'btn btn-danger')))
                         ->getForm()
         ;
     }

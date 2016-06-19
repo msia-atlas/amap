@@ -2,7 +2,7 @@
 
 {% block main -%}
 <div class="row">
-    <div class ="col-md-12 titre"  id="tableauGestion">
+    <div class ="col-md-12 titre">
         <h1>Gestion des magasins</h1>
     </div>
 </div>
@@ -13,7 +13,6 @@
             <tr>
                 <th>Adresse</th>
                 <th>Responsable</th>
-                <th>Id</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -22,16 +21,9 @@
             <tr>
                 <td><a href="{{ path('magasin_show', { 'id': entity.id }) }}">{{ entity.adresse }}</a></td>
                 <td>{{ entity.responsable }}</td>
-                <td>{{ entity.id }}</td>
                 <td>
-                <ul>
-                    <li>
-                        <a href="{{ path('magasin_show', { 'id': entity.id }) }}">show</a>
-                    </li>
-                    <li>
-                        <a href="{{ path('magasin_edit', { 'id': entity.id }) }}">edit</a>
-                    </li>
-                </ul>
+                  <a href="{{ path('magasin_edit', { 'id': entity.id }) }}" class="btn btn-default btn-xs" role="button">Modifier</a>
+                  <a href="{{ path('magasin_delete', { 'id': entity.id }) }}" class="btn btn-danger btn-xs" role="button">Supprimer</a>
                 </td>
             </tr>
         {% endfor %}
