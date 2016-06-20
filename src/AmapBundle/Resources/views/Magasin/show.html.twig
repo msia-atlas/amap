@@ -1,9 +1,13 @@
-{% extends '::base.html.twig' %}
+{% extends 'AmapBundle:Default:layout.html.twig' %}
 
-{% block body -%}
-    <h1>Magasin</h1>
-
-    <table class="record_properties">
+{% block main -%}
+<div class="row">
+    <div class ="col-md-12 titre">
+         <h1>Magasin</h1>
+    </div>
+</div>
+<div class="row">
+    <table class="table table-striped"> 
         <tbody>
             <tr>
                 <th>Adresse</th>
@@ -13,24 +17,30 @@
                 <th>Responsable</th>
                 <td>{{ entity.responsable }}</td>
             </tr>
-            <tr>
-                <th>Id</th>
-                <td>{{ entity.id }}</td>
-            </tr>
         </tbody>
     </table>
+</div>
+<div class="row">
+        <div class ="col-md-1">
+            <a href="{{ path('magasin_edit', { 'id': entity.id }) }}"  class="btn btn-default" role="button">
+                Modifier
+            </a>
+        </div>
+        <div class ="col-md-1">   
+            {{ form(delete_form) }}
+        </div>    
+    </div>
+        
 
-        <ul class="record_actions">
-    <li>
-        <a href="{{ path('magasin') }}">
-            Back to the list
-        </a>
-    </li>
-    <li>
-        <a href="{{ path('magasin_edit', { 'id': entity.id }) }}">
-            Edit
-        </a>
-    </li>
-    <li>{{ form(delete_form) }}</li>
-</ul>
+    <div class="row">
+        <div class="record_actions">
+            <ul>
+                <li>
+                    <a href="{{ path('magasin') }}">
+                        Retourner à la liste des magasins
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
 {% endblock %}

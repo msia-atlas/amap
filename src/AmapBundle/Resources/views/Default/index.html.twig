@@ -2,21 +2,61 @@
 {% block main -%}
     <div class="row">
         <div class ="col-md-12 titre">
-            <h1>Accueil</h1>
-        </div>
+            <h1>Accueil</h1>        
+       </div>
     </div>
-    <div class="row">
-        <div class="col-md-8">
-            Principe : 
-            Une AMAP naît en général de la rencontre d'un groupe de consommateurs et d'un producteur prêts à entrer dans la démarche. Ils établissent entre eux un contrat pour une (on distingue en général 2 saisons de production : printemps / été et automne / hiver), selon les modalités suivantes :
-
-            Ensemble, ils définissent la diversité et la quantité de denrées à produire pour la saison. Ces denrées peuvent être aussi bien des fruits, des légumes, des oeufs, du fromage, de la viande... 
-            La diversité est très importante car elle permet aux partenaires de l'AMAP de consommer une grande variété d'aliments, d'étendre la durée de la saison, et de limiter les risques dus aux aléas climatiques et aux éventuels problèmes sanitaires.
-
-            Pendant la saison, et ce de manière périodique (ex. une fois par semaine), le producteur met les produits frais (ex. les fruits et légumes sont récoltés le matin même de la distribution) à disposition des partenaires, ce qui constitue leur panier. Le contenu de ce dernier dépend des produits arrivés à maturité. Il est possible, dans une certaine mesure, d'échanger les produits entre eux selon ses préférences. 
-            Contrairement à la grande distribution, les consommateurs en AMAP accordent moins d'importance à la standardisation des aliments ; tout ce qui est produit est consommé (alors que dans l'autre cas, ce peut être jusqu'à 60 % de la récolte qui reste au champ). Ce principe est d'une part très valorisant pour le producteur, et d'autre part il permet de diminuer le prix des denrées en reportant les coûts sur la totalité de la production.
-        </div>
-        
+    <style>
+        .carousel{
+            background: #2E2E2E;
+            margin-top: 20px;
+        }
+        .carousel-inner > .item > img,
+        .carousel-inner > .item > a > img {
+            
+            width: 70%;
+            margin: auto;
+        }
+    </style>
+     <div class="row">
+         <blockquote>
+             <p>Une AMAP naît en général de la rencontre d'un groupe de consommateurs et d'un producteur prêts à entrer dans la démarche. Ils établissent entre eux un contrat pour une (on distingue en général 2 saisons de production : printemps / été et automne / hiver), selon les modalités suivantes:</p>            
+             <p>Ensemble, ils définissent la diversité et la quantité de denrées à produire pour la saison. Ces denrées peuvent être aussi bien des fruits, des légumes, des oeufs, du fromage, de la viande...<br>
+                 La diversité est très importante car elle permet aux partenaires de l'AMAP de consommer une grande variété d'aliments, d'étendre la durée de la saison, et de limiter les risques dus aux aléas climatiques et aux éventuels problèmes sanitaires.</p>
+             <p>Pendant la saison, et ce de manière périodique (ex. une fois par semaine), le producteur met les produits frais (ex. les fruits et légumes sont récoltés le matin même de la distribution) à disposition des partenaires, ce qui constitue leur panier.<br> Le contenu de ce dernier dépend des produits arrivés à maturité. Il est possible, dans une certaine mesure, d'échanger les produits entre eux selon ses préférences.<br>
+                 Contrairement à la grande distribution, les consommateurs en AMAP accordent moins d'importance à la standardisation des aliments ; tout ce qui est produit est consommé (alors que dans l'autre cas, ce peut être jusqu'à 60 % de la récolte qui reste au champ). Ce principe est d'une part très valorisant pour le producteur, et d'autre part il permet de diminuer le prix des denrées en reportant les coûts sur la totalité de la production.</p>
+             
+             <p>"Produire toujours plus, quitte à appauvrir la terre, à polluer les nappes, à répandre dans l'atmosphère des matières toxiques, ce n'est pas le métier que les paysans ont choisi."<p>
+          <small>By<cite>Nicolas Hulot</cite></small>
+        </blockquote>
     </div>
 
+    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+      <li data-target="#myCarousel" data-slide-to="1"></li>
+    </ol>
+
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner" role="listbox">
+      <div class="item active">
+        <img src="{{ asset('bundles/amap/images/4.jpeg') }}" alt="Chania" width="460" height="345">
+      </div>
+
+      <div class="item">
+        <img src="{{ asset('bundles/amap/images/amap-france-legume.jpg') }}" alt="Chania" width="460" height="345">
+      </div>
+    </div>
+
+    <!-- Left and right controls -->
+    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+      <span class="sr-only">Précedeant</span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+      <span class="sr-only">Suivant</span>
+    </a>
+  </div>
+   
 {% endblock %}

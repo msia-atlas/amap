@@ -8,12 +8,11 @@
 </div>
 
  <div class="row">
-    <table class="table">
+    <table class="table table-striped" id="tableauGestion">
         <thead>
             <tr>
                 <th>Adresse</th>
                 <th>Responsable</th>
-                <th>Id</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -22,16 +21,9 @@
             <tr>
                 <td><a href="{{ path('magasin_show', { 'id': entity.id }) }}">{{ entity.adresse }}</a></td>
                 <td>{{ entity.responsable }}</td>
-                <td>{{ entity.id }}</td>
                 <td>
-                <ul>
-                    <li>
-                        <a href="{{ path('magasin_show', { 'id': entity.id }) }}">show</a>
-                    </li>
-                    <li>
-                        <a href="{{ path('magasin_edit', { 'id': entity.id }) }}">edit</a>
-                    </li>
-                </ul>
+                  <a href="{{ path('magasin_edit', { 'id': entity.id }) }}" class="btn btn-default btn-xs" role="button">Modifier</a>
+                  <a href="{{ path('magasin_delete', { 'id': entity.id }) }}" class="btn btn-danger btn-xs" role="button">Supprimer</a>
                 </td>
             </tr>
         {% endfor %}

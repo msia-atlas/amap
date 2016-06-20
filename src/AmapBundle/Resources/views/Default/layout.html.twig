@@ -7,6 +7,8 @@
         {% stylesheets
             'bundles/amap/css/default.css'
             'public/css/bootstrap.css'
+            'public/css/jquery.dataTables.min.css'
+            'public/css/dataTables.bootstrap.min.css'
             filter='cssrewrite' %}
         <link rel="stylesheet" href="{{ asset_url }}" />
         {% endstylesheets %}
@@ -22,7 +24,7 @@
             <div class="alert alert-warning" style="opacity: 500; display: none;"></div>
             <div class="alert alert-danger" style="opacity: 500; display: none;"></div>
             <div class="container">
-                
+
                 {% block main   %}
                 {% endblock %}
             </div>
@@ -36,13 +38,16 @@
     </body>
     {% block javascripts %}
         {% javascripts 
-        'public/js/jquery.js'
-        'public/js/bootstrap.js'
         '@AmapBundle/Resources/public/js/default.js'
         %}
+        <script src="{{ asset('public/js/jquery.js') }}"></script>
+        <script src="{{ asset('public/js/bootstrap.js') }}"></script>
+        <script src="{{ asset('public/js/dataTable.js') }}"></script>
+        <script src="{{ asset('public/js/dataTables.bootstrap.min.js') }}"></script>
         <script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
         <script src="{{ path('fos_js_routing_js', {"callback": "fos.Router.setData"}) }}"></script>
         <script src="{{ asset_url }}"></script>
+        <script src="{{ asset('public/js/dataTablesAll.js') }}"></script>
         {% endjavascripts %}
     {% endblock %}
 </html>

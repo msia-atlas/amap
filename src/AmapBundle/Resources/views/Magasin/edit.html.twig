@@ -1,16 +1,55 @@
-{% extends '::base.html.twig' %}
+{% extends 'AmapBundle:Default:layout.html.twig' %}
 
-{% block body -%}
-    <h1>Magasin edit</h1>
+{% block main -%}
+ {{ form_start(edit_form) }}
+<div class="row">
+        <div class ="col-md-12 titre">
+            <h1>Edition de magasin</h1>
+        </div>
+    </div>
 
-    {{ form(edit_form) }}
-
-        <ul class="record_actions">
-    <li>
-        <a href="{{ path('magasin') }}">
-            Back to the list
-        </a>
-    </li>
-    <li>{{ form(delete_form) }}</li>
-</ul>
+     <fieldset class="form-group">    
+        <div class="row">
+            <div class ="col-md-2">
+                {{ form_label(edit_form.adresse,'Adresse :') }}
+            </div>
+            <div class ="col-md-4" >
+                    {{ form_widget(edit_form.adresse,{'attr': {'class': 'form-control'}}) }}
+            </div>
+        </div>
+    </fieldset>
+            
+            
+      <fieldset class="form-group">    
+        <div class="row">
+            <div class ="col-md-2">
+                {{ form_label(edit_form.responsable,'Responsable :') }}
+            </div>
+            <div class ="col-md-4" >
+                    {{ form_widget(edit_form.responsable,{'attr': {'class': 'form-control'}}) }}
+            </div>
+        </div>
+    </fieldset>
+            
+    <fieldset class="form-group">
+         <div class="row">
+                <div class ="col-md-1">
+                    {{ form(edit_form) }}
+                </div>
+                <div class ="col-md-1">
+                    {{ form(delete_form) }}
+                </div>
+        <div>
+    </fieldset>
+    <div class="row">
+        <div class="record_actions">
+            <ul>
+                <li>
+                    <a href="{{ path('magasin') }}">
+                        Retourner à la liste des magasins
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
 {% endblock %}

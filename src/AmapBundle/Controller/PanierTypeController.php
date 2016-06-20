@@ -75,8 +75,7 @@ class PanierTypeController extends Controller
             'method' => 'POST',
         ));
 
-        $form->add('submit', 'submit', array('label' => 'Ajouter','attr'=>['class'=>'"btn btn-success pull-right"']));
-
+$form->add('submit', 'submit', array('label' => 'Enregistrer un panier','attr' => array('class' => 'btn btn-success add pull-right')));
         return $form;
     }
     /**
@@ -172,7 +171,7 @@ class PanierTypeController extends Controller
             'method' => 'PUT',
         ));
 
-        $form->add('submit', 'submit', array('label' => 'Update'));
+        $form->add('Enregistrer', 'submit', array('attr' => array('class' => 'btn btn-success')));
 
         return $form;
     }
@@ -242,8 +241,8 @@ class PanierTypeController extends Controller
         return $this->createFormBuilder()
             ->setAction($this->generateUrl('panierType_delete', array('id' => $id)))
             ->setMethod('DELETE')
-            ->add('submit', 'submit', array('label' => 'Delete'))
-            ->getForm()
+            ->add('Supprimer', 'submit', array('attr' => array('class' => 'btn btn-danger')))
+             ->getForm()
         ;
     }
 }

@@ -67,7 +67,7 @@ class MagasinController extends Controller
             'method' => 'POST',
         ));
 
-        $form->add('submit', 'submit', array('label' => 'Create'));
+        $form->add('submit', 'submit', array('label' => 'Enregistrer un magasin','attr' => array('class' => 'btn btn-success add pull-right')));
 
         return $form;
     }
@@ -147,7 +147,7 @@ class MagasinController extends Controller
             'method' => 'PUT',
         ));
 
-        $form->add('submit', 'submit', array('label' => 'Update'));
+        $form->add('Enregistrer', 'submit', array('attr' => array('class' => 'btn btn-success')));
 
         return $form;
     }
@@ -207,7 +207,7 @@ class MagasinController extends Controller
 
     /**
      * Creates a form to delete a Magasin entity by id.
-     *
+     *  
      * @param mixed $id The entity id
      *
      * @return \Symfony\Component\Form\Form The form
@@ -217,7 +217,7 @@ class MagasinController extends Controller
         return $this->createFormBuilder()
             ->setAction($this->generateUrl('magasin_delete', array('id' => $id)))
             ->setMethod('DELETE')
-            ->add('submit', 'submit', array('label' => 'Delete'))
+            ->add('Supprimer', 'submit', array('attr' => array('class' => 'btn btn-danger')))
             ->getForm()
         ;
     }

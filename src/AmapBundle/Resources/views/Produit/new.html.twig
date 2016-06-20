@@ -1,15 +1,83 @@
 {% extends 'AmapBundle:Default:layout.html.twig' %}
 
 {% block main -%}
-    <h1>Produit creation</h1>
+  {{ form_start(form) }}
+     <div class="row">
+        <div class ="col-md-12 titre">
+            <h1>Création de produit</h1>
+        </div>
+    </div>
+     
+    <fieldset class="form-group">    
+            <div class="row">
+                <div class ="col-md-2">
+                    {{ form_label(form.libelle,'Libelle :') }}
+                </div>
+                <div class ="col-md-4" >
+                        {{ form_widget(form.libelle,{'attr': {'class': 'form-control'}}) }}
+                </div>
+            </div>
+     </fieldset>
+                
+   <fieldset class="form-group">    
+            <div class="row">
+                <div class ="col-md-2">
+                    {{ form_label(form.saison,'Saison :') }}
+                </div>
+                <div class ="col-md-4" >
+                        {{ form_widget(form.saison,{'attr': {'class': 'form-control'}}) }}
+                </div>
+            </div>
+     </fieldset>
+     
+    <fieldset class="form-group">    
+            <div class="row">
+                <div class ="col-md-2">
+                    {{ form_label(form.typeProduit,'Type de produit :') }}
+                </div>
+                <div class ="col-md-4" >
+                        {{ form_widget(form.typeProduit ,{'attr': {'class': 'form-control'}}) }}
+                </div>
+            </div>
+     </fieldset>
+                
+      <fieldset class="form-group">    
+            <div class="row">
+                <div class ="col-md-2">
+                    {{ form_label(form.uniteMesure,'Unité de mesure :') }}
+                </div>
+                <div class ="col-md-4" >
+                        {{ form_widget(form.uniteMesure ,{'attr': {'class': 'form-control'}}) }}
+                </div>
+            </div>
+     </fieldset>
+                
+    <fieldset class="form-group">    
+            <div class="row">
+                <div class ="col-md-2">
+                    {{ form_label(form.prixUnitaire,'Prix unitaire :') }}
+                </div>
+                <div class ="col-md-4" >
+                        {{ form_widget(form.prixUnitaire ,{'attr': {'class': 'form-control'}}) }}
+                </div>
+            </div>
+     </fieldset>
 
-    {{ form(form) }}
+    <div class="row">
+         {{ form_widget(form.submit)}}
+         {{ form_end(form) }}
+    </div>     
+                         
 
-        <ul class="record_actions">
-    <li>
-        <a href="{{ path('produit') }}">
-            Rretour à la liste des produits
-        </a>
-    </li>
-</ul>
+  <div class="row">
+        <div class="record_actions">
+            <ul>
+                <li>
+                    <a href="{{ path('produit') }}">
+                        Retourner à la liste des produits
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
 {% endblock %}
