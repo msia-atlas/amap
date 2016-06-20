@@ -73,3 +73,13 @@ background-color: white;
     left:15px;
     right:15px;
 }
+
+.entetePanier{
+     background-color: #64DD17;
+    color: white;
+    font-weight: bold;
+}
+.panier{
+   
+    margin : 5px;
+}

@@ -121,6 +121,7 @@ class ContratConsommateurController extends Controller {
                 array("saison" => $entity->getSaison(),
                     "statut" => Panier::STATUT_TYPE,
                     "amap" => $entity->getConsommateur()->getAmap()));
+        
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find ContratConsommateur entity.');
         }

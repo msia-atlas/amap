@@ -1,4 +1,4 @@
-{% extends '::base.html.twig' %}
+{% extends 'AmapBundle:Default:layout.html.twig' %}
 
 {% block main -%}
     <div class="row">
@@ -7,31 +7,43 @@
         </div>
     </div>
     <div class="row">
-        <h1>ContratConsommateur edit</h1>
+        <div class ="col-md-12">
+            {{ form(edit_form) }}
 
-        {{ form(edit_form) }}
-
-        <ul class="record_actions">
-            <li>
-                <a href="{{ path('contratConsommateur') }}">
-                    Retour aux contrats consomateurs
-                </a>
-            </li>
-            <li>{{ form(delete_form) }}</li>
-        </ul>
+            <ul class="record_actions">
+                <li>
+                    <a href="{{ path('contratConsommateur') }}">
+                        Retour aux contrats consomateurs
+                    </a>
+                </li>
+                <li>{{ form(delete_form) }}</li>
+            </ul>
+        </div>
     </div>
     <div class="row">
-        {%for panier in paniers%}
-            <div class="col-lg-3">
-                <div class="entetePanier">
-                    {{panier.libelle}}
+        <div class="col-md-12">
+            {%for panier in paniers%}
+
+                <div class="col-md-3 panier">
+                    <div class="container-fluid">
+                        <div class="row entetePanier">
+
+                            {{panier.libelle}} <div class="pull-right">  {{panier.prix}}</div>
+
+                        </div>
+
+                        <div class="row contentPanier">
+                            {%for lignePanier in panier.LignesPanier%}
+                                <div class="row">
+                                    {{lignePanier.produit.libelle}} : {{lignePanier.quantiteParDefaut}}
+                                </div>
+                            {%endfor%}
+                        </div>
+
+                    </div>
                 </div>
-                <div class="contentPanier">
-                    {%for lignePanier in panier.LignesPanier%}
-                        {{lignePanier.produit.libelle}} : {{ligenPanier.quantiteParDefaut}}
-                    {%endfor%}
-                </div>
-            </div>
-        {%endfor%}
+            {%endfor%}
+        </div>
     </div>
+
 {% endblock %}
