@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         {% stylesheets
             'bundles/amap/css/default.css'
-            'public/css/bootstrap.css'
+            'bundles/amap/css/bootstrap.css'
             'bundles/amap/css/jquery.dataTables.min.css'
             'bundles/amap/css/dataTables.bootstrap.min.css'
             filter='cssrewrite' %}
@@ -39,15 +39,15 @@
     {% block javascripts %}
         {% javascripts 
         '@AmapBundle/Resources/public/js/default.js'
-        '@AmapBundle/Resources/public/js/datatables.bootstrap.min.js'
-        '@AmapBundle/Resources/public/js/datatable.js'
-        '@AmapBundle/Resources/public/js/datatablesall.js'
         %}
         <script src="{{ asset('public/js/jquery.js') }}"></script>
         <script src="{{ asset('public/js/bootstrap.js') }}"></script>
+        <script src="{{ asset('bundles/amap/js/dataTable.js') }}"></script>
+        <script src="{{ asset('bundles/amap/js/dataTables.bootstrap.min.js') }}"></script>
         <script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
         <script src="{{ path('fos_js_routing_js', {"callback": "fos.Router.setData"}) }}"></script>
-         <script src="{{ asset_url }}"></script>
+        <script src="{{ asset('bundles/amap/js/dataTablesAll.js') }}"></script>
+        <script src="{{ asset_url }}"></script>
         {% endjavascripts %}
     {% endblock %}
 </html>
