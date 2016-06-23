@@ -1,0 +1,6 @@
+Installer l'app : 
+
+1- Configurer le fichier app/config/parameters.yml pour l'acces à la BDD
+2- Executer install.bat à la racine du dossier. /!\ php doit etre en variable d'environnement.
+
+Enjoy!!!
