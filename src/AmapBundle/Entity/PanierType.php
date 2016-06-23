@@ -40,7 +40,7 @@ class PanierType {
     private $typePanier;
     /**
      *
-     * @var flaot
+     * @var double
      */
     private $prix;
     /**
@@ -135,7 +135,7 @@ class PanierType {
         $this->typePanier = $typePanier;
     }
 
-    function setPrix(flaot $prix) {
+    function setPrix( $prix) {
         $this->prix = $prix;
     }
 

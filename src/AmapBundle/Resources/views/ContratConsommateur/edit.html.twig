@@ -6,44 +6,52 @@
             <h1>Contrats pour la saison {{entity.saison.libelle}}</h1>
         </div>
     </div>
+    <div class ="row pull-right">
+        {{ form(delete_form) }}
+    </div>
     <div class="row">
+        {{form_start(edit_form)}}
         <div class ="col-md-12">
             {{ form(edit_form) }}
 
-            <ul class="record_actions">
-                <li>
-                    <a href="{{ path('contratConsommateur') }}">
-                        Retour aux contrats consomateurs
-                    </a>
-                </li>
-                <li>{{ form(delete_form) }}</li>
-            </ul>
+
         </div>
     </div>
     <div class="row">
-        <div class="col-md-12">
-            {%for panier in paniers%}
 
-                <div class="col-md-3 panier">
-                    <div class="container-fluid">
-                        <div class="row entetePanier">
+        {%for panier in paniers%}
 
-                            {{panier.libelle}} <div class="pull-right">  {{panier.prix}}</div>
-
-                        </div>
-
-                        <div class="row contentPanier">
+            <div class="col-md-3 panier">
+                <div class="section">
+                    <div class="row entetePanier"> 
+                        {{panier.libelle}} <div class="pull-right">  {{panier.prix}}€ / paniers</div>
+                    </div>
+                    <div class="row contentPanier">
+                        <div class="section">
                             {%for lignePanier in panier.LignesPanier%}
-                                <div class="row">
-                                    {{lignePanier.produit.libelle}} : {{lignePanier.quantiteParDefaut}}
+                                <div class="col-md-12">
+                                    {{lignePanier.produit.libelle}} : {{lignePanier.quantiteParDefaut}}  {{lignePanier.produit.uniteMesure}}
                                 </div>
+
                             {%endfor%}
                         </div>
-
+                    </div>
+                    <div class="row qte">
+                        Commande : <input style="color:black;" type="number" name="qte_{{panier.id}}"value="0" min="0">
                     </div>
                 </div>
-            {%endfor%}
-        </div>
+            </div>
+
+        {%endfor%}
+    </div>
+
+    <div class="row">
+
+        <a href="{{ path('contratConsommateur') }}">
+            Retour aux contrats consomateurs
+        </a>
+
+
     </div>
 
 {% endblock %}
