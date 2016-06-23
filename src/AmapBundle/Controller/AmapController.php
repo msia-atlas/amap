@@ -22,13 +22,12 @@ class AmapController extends Controller {
 
         $entities = $em->getRepository('AmapBundle:Amap')->findAll();
         foreach ($entities as $entity) {
-            $responsable = $this->getResponsable($entity, $em);
-            $responsables[$entity->getId()] = $responsable;
+            //$responsable = $this->getResponsable($entity, $em);
+           // $responsables[$entity->getId()] = $responsable;
         }
         return $this->render('AmapBundle:Amap:index.html.twig', array(
-                    'entities' => $entities
-                
-                   
+                    'entities' => $entities,
+                   'responsables' => array()
         ));
     }
 
@@ -220,7 +219,7 @@ class AmapController extends Controller {
     }
 
     private function getResponsable(Amap $amap, $em) {
-        return $em->getRepository('AmapBundle:Personne')->findOneBy(array('amap' => $amap));
+        return $em->getRepository('AmapBundle:Personne')->findBy(array('amap' => $amap))[0];
     }
 
 }
