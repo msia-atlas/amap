@@ -7,11 +7,11 @@
                     <a class="navbar-brand" href="#"><img src="{{ asset('bundles/amap/images/logo.jpg') }}" /></a>                 
                 </div> 
                 <ul class="nav navbar-nav">
-                    <li><a href="/amap/web/app_dev.php">Accueil</a></li>   
+                    <li><a href="/">Accueil</a></li>   
                     {% if is_granted("ROLE_DROIT_ACCES_RESPONSABLE") %}
                         <li><a href="{{path("magasin")}}">Gestion des magasins</a></li>
                         <li><a href="{{path("contratConsommateur")}}">Gestion des contrats Consommateurs</a></li>
-                        <li><a href="{{path("contratProducteur")}}" >Gestion des contrats Producteur</a></li>
+                        <li><a href="{{path("enConstruction")}}" >Gestion des contrats Producteur</a></li>
                         <li><a href="{{path("panierType")}}">Gestion des paniers types</a></li>
                     {%endif%}
                     {% if is_granted("ROLE_ADMIN") %}
@@ -25,7 +25,7 @@
                     <li><a href="{{path("preferenceConsommateur")}}">Gestion de mes préférences</a></li>
                     {%endif%}
                     {% if is_granted("ROLE_DROIT_ACCES_PRODUCTEUR") %}
-                    <li><a href="index">Mes contrats</a></li>
+                    <li><a href="{{path("enConstruction")}}">Mes contrats</a></li>
                     <li><a href="{{path("production")}}">Gestion de mes productions</a></li>
                     {%endif%}
                 </ul>

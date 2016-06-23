@@ -10,4 +10,8 @@ class DefaultController extends Controller
     {
         return $this->render('AmapBundle:Default:index.html.twig');
     }
+     public function devAction()
+    {
+        return $this->render('AmapBundle:Default:enDev.html.twig');
+    }
 }

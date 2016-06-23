@@ -13,6 +13,7 @@
                     <tr>
                         <th>Produit</th>
                         <th>Quantite à livrée</th>
+                        <th>Statut</th> 
                         <th>Date de lancement</th>
                         <th>Date de livraison</th>            
                         <th>Actions</th>
@@ -23,6 +24,8 @@
                         <tr>
                             <td><a href="{{ path('production_show', { 'id': entity.id }) }}">{{ entity.produit }}</a></td>
                             <td>{{ entity.quantiteLivree }}</td>
+                            <td>{{ entity.statut }}</td>
+
                             <td>{% if entity.dateLancement %}{{ entity.dateLancement|date('Y-m-d H:i:s') }}{% endif %}</td>
                             <td>{% if entity.dateLivraison %}{{ entity.dateLivraison|date('Y-m-d H:i:s') }}{% endif %}</td>
                             <td>
